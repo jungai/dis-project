@@ -2,28 +2,19 @@
 
 ## Project setup
 ```
-yarn install
+npm install
 ```
 
-### Compiles and hot-reloads for development
+### Run for Development
 ```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
+npm run serve
 ```
 
 ### Lints and fixes files
 ```
-yarn run lint
+npm run lint --fix
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Ref in this proje ct
+See [Vue](https://cli.vuejs.org/config/).
+See [Bootstrap-vue](https://bootstrap-vue.js.org).
