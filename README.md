@@ -15,6 +15,5 @@ npm run serve
 npm run lint --fix
 ```
 
-### Ref in this proje ct
-See [Vue](https://cli.vuejs.org/config/).
-See [Bootstrap-vue](https://bootstrap-vue.js.org).
+### Ref in this project
+See [Vue](https://cli.vuejs.org/config/). [Bootstrap-vue](https://bootstrap-vue.js.org).
