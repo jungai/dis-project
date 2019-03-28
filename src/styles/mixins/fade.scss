@@ -1,0 +1,19 @@
+@mixin fade() {
+    .fade-enter-active {
+        animation: fade-in .5s;
+      }
+
+    .fade-leave-active {
+    animation: fade-in .5s reverse;
+    }
+    
+    @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+      
+        to {
+          opacity: 1;
+        }
+      }
+}
