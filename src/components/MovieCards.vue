@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import json from './data.json'
+  import json from '../data/data.json'
   export default {
     data: function () {
       return {
