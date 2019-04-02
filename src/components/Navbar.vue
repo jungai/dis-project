@@ -2,8 +2,8 @@
   <div>
     <b-navbar class="p-1 border border-secondary">
       <b-navbar-brand href="#">
-        <img src="@/assets/logo.png" alt="wait for real" class="logo">
-        Movie2Free
+        <img src="@/assets/moviereview.png" alt="wait for real" class="logo">
+        Review2Free
       </b-navbar-brand>
       <b-navbar-nav class="ml-auto">
         <b-nav-item

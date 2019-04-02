@@ -9,22 +9,19 @@
         <ModalLogin
           v-if="clickSignIn"/>
     </transition>
-    <Test/>
-    <Pagination/>
+    <MovieCards/>
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar'
 import ModalLogin from '@/components/ModalLogin'
-import Test from '@/components/Test'
-import Pagination from '@/components/Pagination'
+import MovieCards from '@/components/MovieCards'
 export default {
   components: {
     Navbar,
     ModalLogin,
-    Test,
-    Pagination
+    MovieCards,
   },
   data: () => ({
     clickSignIn: false
