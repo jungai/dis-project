@@ -27,60 +27,60 @@
 </template>
 
 <script>
-  import json from '../data/data.json'
-  export default {
-    data: function () {
-      return {
-        movies: json,
-        paginatedMovies:[],
-        nbPages:0,
-        nbRowPerPage:4,
-        currentPageIndex:0,
-      }
+import json from '../data/data.json'
+export default {
+  data: function () {
+    return {
+      movies: json,
+      paginatedMovies: [],
+      nbPages: 0,
+      nbRowPerPage: 4,
+      currentPageIndex: 0
+    }
+  },
+  computed: {
+    formattedMovies () {
+      return this.movies.reduce((c, n, i) => {
+        if (i % 4 === 0) c.push([])
+        c[c.length - 1].push(n)
+        return c
+      }, [])
     },
-    computed: {
-        formattedMovies() {
-            return this.movies.reduce((c, n, i) => {
-                if (i % 4 === 0) c.push([]);
-                c[c.length - 1].push(n);
-                return c;
-            }, []);
-        },
-        currentPageMovies(){
-          this.createPages();
+    currentPageMovies () {
+      this.createPages()
 
-          return this.paginatedMovies[this.currentPageIndex];
-        },
-        lastPageClubs() {
-          return 4-(this.paginatedMovies[this.currentPageIndex]).length;
-        },
-        movieImage(){
-          return this.clubs.image
-        }
+      return this.paginatedMovies[this.currentPageIndex]
     },
-    methods:{
-      currentPage(i){
-          return i-1===this.currentPageIndex;
-      },
-        createPages() {
-        let lengthAll = Object.keys(this.movies).length;
-        this.nbPages = 0;
-        for (let i = 0; i < lengthAll; i = i + this.nbRowPerPage) {
-          this.paginatedMovies[this.nbPages] = this.movies.slice(
-            i,
-            i + this.nbRowPerPage
-          );
-          this.nbPages++;
-        }
-      },
-      goto(i){
-        this.currentPageIndex=i-1;
-      },
-      golast(){
-        this.currentPageIndex=Math.ceil(Object.keys(this.movies).length/this.nbRowPerPage)-1
+    lastPageClubs () {
+      return 4 - (this.paginatedMovies[this.currentPageIndex]).length
+    },
+    movieImage () {
+      return this.clubs.image
+    }
+  },
+  methods: {
+    currentPage (i) {
+      return i - 1 === this.currentPageIndex
+    },
+    createPages () {
+      let lengthAll = Object.keys(this.movies).length
+      this.nbPages = 0
+      for (let i = 0; i < lengthAll; i = i + this.nbRowPerPage) {
+        this.paginatedMovies[this.nbPages] = this.movies.slice(
+          i,
+          i + this.nbRowPerPage
+        )
+        this.nbPages++
       }
+    },
+    goto (i) {
+      this.currentPageIndex = i - 1
+    },
+    golast () {
+      this.currentPageIndex = Math.ceil(Object.keys(this.movies).length / this.nbRowPerPage) - 1
     }
   }
+}
 </script>
 
 <style>
@@ -131,7 +131,7 @@
   text-overflow: ellipsis;
 }
 .summary-content{
-  display: block; 
+  display: block;
   display: -webkit-box;
   max-width: 400px;
   margin: 0 auto;

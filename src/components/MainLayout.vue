@@ -21,7 +21,7 @@ export default {
   components: {
     Navbar,
     ModalLogin,
-    MovieCards,
+    MovieCards
   },
   data: () => ({
     clickSignIn: false
