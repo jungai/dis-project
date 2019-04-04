@@ -3,17 +3,13 @@
     <Navbar
       :itClick="clickSignIn"
       @did-click="clickSignIn = $event"/>
-      <!-- @view should be here -->
-    <transition
-      name="fade">
-        <ModalLogin
-          v-if="clickSignIn"/>
-    </transition>
+    <FilterSearch/>
     <MovieCards/>
   </div>
 </template>
 
 <script>
+import FilterSearch from '@/components/FilterSearch'
 import Navbar from '@/components/Navbar'
 import ModalLogin from '@/components/ModalLogin'
 import MovieCards from '@/components/MovieCards'
@@ -21,7 +17,8 @@ export default {
   components: {
     Navbar,
     ModalLogin,
-    MovieCards
+    MovieCards,
+    FilterSearch
   },
   data: () => ({
     clickSignIn: false
@@ -32,4 +29,16 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/mixins/fade.scss';
 @include fade();
+
+.wrapp-all {
+  position: relative;
+
+  .a {
+    position: relative;
+  }
+
+  .b {
+    position: relative;
+  }
+}
 </style>

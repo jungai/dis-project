@@ -1,5 +1,6 @@
 <template>
   <div class="search-n-filter">
+    <!-- @fix it float  -->
     <div class="hero-section"/>
     <div class="filter-box-item d-lg-flex flex-lg-column justify-content-lg-center">
       <ul class="list-text d-flex justify-content-around justify-content-lg-around p-0">
@@ -128,7 +129,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    position: absolute;
+    // position: absolute;
     height: 320px;
     width: 100%;
     filter: brightness(72%);
