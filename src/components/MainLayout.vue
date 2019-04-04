@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div class="wrap">
     <Navbar
       :itClick="clickSignIn"
       @did-click="clickSignIn = $event"
       @did-click2="clickSignIn2 = $event"/>
     <FilterSearch/>
-    <b-row>
+    <b-row class="pp">
       <b-col md="8" lg="8">
         <MovieCards/>
       </b-col>
-      <b-col md="4" lg="4" class="te">
+      <b-col md="4" lg="4">
         <Popular
           header="😀 Popular"
           :popular="popularVote"/>
@@ -70,4 +70,7 @@ export default {
 @import '@/styles/mixins/fade.scss';
 @include fade();
 
+.wrap {
+  overflow-x: hidden
+}
 </style>
