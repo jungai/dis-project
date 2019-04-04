@@ -7,10 +7,20 @@
       </b-navbar-brand>
       <b-navbar-nav class="ml-auto">
         <b-nav-item
+          class="d-md-none"
           @click="$emit('did-click', !itClick)">
           <span class="h2">
             <i class="far fa-user-circle"></i>
           </span>
+        </b-nav-item>
+        <b-nav-item
+        class="d-none d-md-block">
+          <b-button  variant="link" class="mx-2">
+              Sign in
+          </b-button>
+          <b-button  variant="primary"  class="mx-2" >
+              Sign up
+          </b-button>
         </b-nav-item>
       </b-navbar-nav>
     </b-navbar>
