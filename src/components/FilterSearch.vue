@@ -126,6 +126,7 @@ export default {
 
   .hero-section {
     background-image: url('../assets/friend.jpg');
+    // background-color: bisque;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -133,6 +134,10 @@ export default {
     height: 320px;
     width: 100%;
     filter: brightness(72%);
+
+    @media only screen and (min-width: 992px) {
+      height: 420px;
+    }
   }
 
   .filter-box-item {
