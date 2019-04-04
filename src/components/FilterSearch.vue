@@ -1,8 +1,8 @@
 <template>
   <div class="search-n-filter">
     <div class="hero-section"/>
-    <div class="filter-box-item">
-      <ul class="list-text d-flex switcher justify-content-around p-0">
+    <div class="filter-box-item d-lg-flex flex-lg-column justify-content-lg-center">
+      <ul class="list-text d-flex justify-content-around justify-content-lg-around p-0">
         <li
           :class=" isActive ? 'active-tab' : null"
           @click=" isActive = true">ค้นหา</li>
@@ -13,10 +13,12 @@
       <div
         class="p-3 mt-5"
         v-if="isActive">
-        <b-input-group>
-          <span class="prepend-icon"><i class="fas fa-search"></i></span>
-          <b-form-input placeholder="ค้นหาหนังที่ต้องการ"></b-form-input>
-        </b-input-group>
+        <b-col>
+          <b-input-group>
+            <span class="prepend-icon"><i class="fas fa-search"></i></span>
+            <b-form-input placeholder="ค้นหาหนังที่ต้องการ"></b-form-input>
+          </b-input-group>
+        </b-col>
       </div>
       <div
         class="d-flex flex-column p-3"
@@ -143,6 +145,10 @@ export default {
       font-size: 1.4em;
       font-family: 'Kanit', sans-serif;
       list-style: none;
+
+      @media only screen and (min-width: 992px) {
+        font-size: 2.2em;
+      }
 
       .active-tab {
         border-bottom: 2px solid tomato;
