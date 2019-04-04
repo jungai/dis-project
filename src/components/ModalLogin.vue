@@ -1,22 +1,20 @@
 <template>
   <b-card
-    title="Card Title"
-    img-src="https://picsum.photos/600/300/?image=25"
-    img-alt="Image"
-    img-top
-    tag="article"
-    class="mb-2"
+  class="d-md-none"
   >
-    <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of the card's content.
-    </b-card-text>
+  <b-button class="button-login"  block variant="link">Log in</b-button>
+   <b-button class="button-login"  block variant="primary">Register</b-button>
 
-    <b-button href="#" variant="primary">Go somewhere</b-button>
   </b-card>
 </template>
 
 <script>
+
 export default {
+  data: () => ({
+    username: '',
+    password: ''
+  })
 }
 </script>
 
