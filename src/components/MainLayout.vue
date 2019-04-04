@@ -2,16 +2,31 @@
   <div>
     <Navbar
       :itClick="clickSignIn"
-      @did-click="clickSignIn = $event"/>
+      @did-click="clickSignIn = $event"
+      @did-click2="clickSignIn2 = $event"/>
     <FilterSearch/>
-    <MovieCards/>
-    <Popular
-      header="😀 Popular"
-      :popular="popularVote"/>
+    <b-row>
+      <b-col md="8" lg="8">
+        <MovieCards/>
+      </b-col>
+      <b-col md="4" lg="4" class="te">
+        <Popular
+          header="😀 Popular"
+          :popular="popularVote"/>
+      </b-col>
+    </b-row>
+    <b-modal id="modal-1" title="BootstrapVue" v-model="clickSignIn">
+      <Login/>
+    </b-modal>
+    <b-modal id="modal-1" title="BootstrapVue" v-model="clickSignIn2">
+      <SignUp/>
+    </b-modal>
   </div>
 </template>
 
 <script>
+import SignUp from '@/components/SignUp'
+import Login from '@/components/Login'
 import Popular from '@/components/Popular/index'
 import FilterSearch from '@/components/FilterSearch'
 import Navbar from '@/components/Navbar'
@@ -23,10 +38,13 @@ export default {
     ModalLogin,
     MovieCards,
     FilterSearch,
-    Popular
+    Popular,
+    Login,
+    SignUp
   },
   data: () => ({
     clickSignIn: false,
+    clickSignIn2: false,
     popularVote: [
       {
         image: 'https://lumiere-a.akamaihd.net/v1/images/homepage_avengersageofultron_hero_phase3_6c1f86f5.jpeg',
@@ -52,15 +70,4 @@ export default {
 @import '@/styles/mixins/fade.scss';
 @include fade();
 
-.wrapp-all {
-  position: relative;
-
-  .a {
-    position: relative;
-  }
-
-  .b {
-    position: relative;
-  }
-}
 </style>

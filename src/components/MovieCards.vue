@@ -14,7 +14,7 @@
                 <b-btn variant="primary" block style="padding:5px;" >Read review</b-btn>
               </div>
             </b-card>
-            <b-card v-for="index in lastPageClubs" :key="index" class="invisible_card" style="border:0;"/>
+            <b-card v-for="index in lastPageClubs" :key="index" class="d-none d-sm-block invisible_card" style="border:0;"/>
         </b-card-group>
       </div>
     </div>

@@ -6,8 +6,7 @@
     <b-form  @submit.prevent>
       <label for="feedback-user">Email address</label>
       <b-input v-model="userId" :state="validation" id="feedback-user" placeholder="Enter email address"></b-input>
-      
-     
+
      </b-form>
     <b-form  @submit.prevent>
     <label for="text-password">Password</label>
@@ -27,12 +26,12 @@
 
 <script>
 export default {
-  data() {
-      return {
-        userId: ''
-      }
+  data () {
+    return {
+      userId: ''
     }
-    
+  }
+
 }
 </script>
 

@@ -50,17 +50,17 @@
 
 <script>
 export default {
-  data() {
-      return {
-        name: '',
-        email: ''
-      }
-    },
-    computed: {
-      nameState() {
-        return this.name.length > 1 ? true : false
-      }
+  data () {
+    return {
+      name: '',
+      email: ''
     }
+  },
+  computed: {
+    nameState () {
+      return this.name.length > 1
+    }
+  }
 }
 </script>
 

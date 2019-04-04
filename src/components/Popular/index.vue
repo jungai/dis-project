@@ -1,5 +1,5 @@
 <template lang="html">
-  <b-container >
+  <b-container>
     <b-row>
       <b-col>
         <h1 class="mb-3">{{ header }}</h1>
