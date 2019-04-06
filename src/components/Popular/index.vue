@@ -1,12 +1,14 @@
 <template lang="html">
   <b-container >
     <b-row>
-      <b-col>
+      <b-col >
         <h1 class="mb-3">{{ header }}</h1>
+        <h1 v-if="didClick">click</h1>
           <div
           v-for="(movie,index) in popular"
             :key="index">
-            <b-media class="mb-5">
+            <b-media class="mb-5"
+            @click="justClick()">
            <b-img slot="aside" :src="movie.image" width="130" height="80"/>
            <h5 class="mt-0"> {{ movie.movieName }}</h5>
              <span  class="claimedRight">{{ movie.description }}</span>
@@ -29,6 +31,14 @@ export default {
     popular: {
       type: Array,
       default: () => ([])
+    }
+  },
+  data: () =>({
+    didClick: false,
+  }),
+  methods: {
+    justClick() {
+      this.didClick =! this.didClick
     }
   }
 }
