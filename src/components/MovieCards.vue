@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>
+      <div id="title"><p>🎬 รีวิวหนังล่าสุด</p></div>
       <div class="reviewcard">
         <b-card-group deck>
             <b-card v-for="(movie,index) in currentPageMovies" :key="index" v-bind:img-src="movie.image" img-alt="Image" img-top>
@@ -149,5 +150,9 @@ export default {
 }
 .card-footer{
   padding : 10px;
+}
+#title{
+  font-size: 200%;
+  margin-left: 1%;
 }
 </style>
