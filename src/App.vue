@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <b-container>
+    <b-container fluid>
       <b-row>
         <b-col>
           <MainLayout/>
@@ -8,13 +8,6 @@
       </b-row>
       <b-row>
         <b-col md="12" lg="8">
-          <Page/>
-        </b-col>
-        <b-col md="12" lg="4">
-          <Test
-          header="⭐️ Popular"
-          :popular="popularVote"/>
-          <hr class="my-4">
         </b-col>
       </b-row>
     </b-container>
@@ -24,13 +17,11 @@
 
 <script>
 import MainLayout from '@/components/MainLayout'
-import Test from '@/components/Popular'
-import Page from '@/components/page'
+// import Test from '@/components/Popular'
 export default {
   components: {
-    MainLayout,
-    Test,
-    Page
+    MainLayout
+    // Test
   },
   data: () => ({
     popularVote: [
