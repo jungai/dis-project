@@ -15,7 +15,7 @@
                 <b-btn variant="primary" block style="padding:5px;" >อ่านรีวิว</b-btn>
               </div>
             </b-card>
-            <b-card v-for="index in lastPageClubs" :key="index" class="invisible_card" style="border:0;"/>
+            <b-card v-for="index in lastPageClubs" :key="index" class="d-none d-sm-block invisible_card" style="border:0;"/>
         </b-card-group>
       </div>
     </div>
@@ -126,14 +126,14 @@ export default {
   height: 280px !important;
 }
 .card{
-  height: 600px;
+  height: 500px;
 }
 .card-title{
   display: block;
   display: -webkit-box;
   max-width: 400px;
   margin: 0 auto;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -143,7 +143,7 @@ export default {
   display: -webkit-box;
   max-width: 400px;
   margin: 0 auto;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
