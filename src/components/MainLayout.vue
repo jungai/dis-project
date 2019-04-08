@@ -4,7 +4,7 @@
       :itClick="clickSignIn"
       @did-click="clickSignIn = $event"
       @did-click2="clickSignIn2 = $event"/>
-    <FilterSearch/>
+    <FilterSearch class="mb-4"/>
     <b-row class="pp">
       <b-col md="8" lg="8">
         <MovieCards/>
