@@ -4,7 +4,9 @@
       :itClick="clickSignIn"
       @asdas="clickSignIn2 = $event"
       @did-click="clickSignIn = $event"/> -->
-    <FilterSearch class="mb-4"/>
+    <!-- <FilterSearch class="mb-4"/>
+      @did-click="clickSignIn = $event"/> -->
+    <!-- <FilterSearch class="mb-4"/>
     <b-row>
       <b-col md="8" lg="8">
         <MovieCards/>
@@ -19,8 +21,9 @@
       <Login/>
     </b-modal>
     <b-modal class="modal-title" hide-footer title="สมัครสมาชิก" v-model="clickSignIn2">
-      <SignUp/>
-    </b-modal>
+      <SignUp/>[]
+    </b-modal> -->
+    <PostHeader/>
   </div>
 </template>
 
@@ -31,6 +34,7 @@ import Popular from '@/components/Popular/index'
 import FilterSearch from '@/components/FilterSearch'
 import Navbar from '@/components/Navbar'
 import MovieCards from '@/components/MovieCards'
+import PostHeader from '@/components/PostHeader'
 export default {
   components: {
     Navbar,
@@ -38,7 +42,8 @@ export default {
     FilterSearch,
     Popular,
     Login,
-    SignUp
+    SignUp,
+    PostHeader
   },
   data: () => ({
     clickSignIn: false,
