@@ -6,7 +6,7 @@
       @did-click="clickSignIn = $event"/>
     <FilterSearch class="mb-4"/>
     <b-row>
-      <b-col md="7" lg="7">
+      <b-col md="8" lg="8">
         <MovieCards/>
       </b-col>
       <b-col md="4" lg="4">

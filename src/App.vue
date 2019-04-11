@@ -1,17 +1,6 @@
 <template>
   <div id="app">
-    <b-container fluid>
-      <b-row>
-        <b-col>
-          <MainLayout/>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col md="12" lg="8">
-        </b-col>
-      </b-row>
-    </b-container>
-
+    <MainLayout/>
   </div>
 </template>
 

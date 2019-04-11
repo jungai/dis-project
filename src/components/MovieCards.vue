@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import json from '../data/data.json'
 import axios from 'axios'
 export default {
   data: function () {
