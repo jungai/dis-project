@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>
+      <div id="title"><p>🎬 รีวิวหนังล่าสุด</p></div>
       <div class="reviewcard">
         <b-card-group deck>
             <b-card v-for="(movie,index) in currentPageMovies" :key="index" v-bind:img-src="movie.image" img-alt="Image" img-top>
@@ -11,7 +12,7 @@
                 {{movie.review}}
               </b-card-text>
               <div slot="footer">
-                <b-btn variant="primary" block style="padding:5px;" >Read review</b-btn>
+                <b-btn variant="primary" block style="padding:5px;" >อ่านรีวิว</b-btn>
               </div>
             </b-card>
             <b-card v-for="index in lastPageClubs" :key="index" class="d-none d-sm-block invisible_card" style="border:0;"/>
@@ -19,9 +20,9 @@
       </div>
     </div>
     <ul class="pagination">
-      <li class="page-item"><a class="page-link" @click="goto(1)">First</a></li>
+      <li class="page-item"><a class="page-link" @click="goprevious()">ก่อนหน้า</a></li>
       <li class="page-item" v-for="i in nbPages" :key="i"  @click="goto(i)" :class={active:currentPage(i)}><a class="page-link">{{i}}</a></li>
-      <li class="page-item"><a class="page-link" @click="golast()">Last</a></li>
+      <li class="page-item"><a class="page-link" @click="gonext()">ถัดไป</a></li>
     </ul>
   </div>
 </template>
@@ -53,9 +54,6 @@ export default {
     },
     lastPageClubs () {
       return 4 - (this.paginatedMovies[this.currentPageIndex]).length
-    },
-    movieImage () {
-      return this.clubs.image
     }
   },
   methods: {
@@ -78,6 +76,16 @@ export default {
     },
     golast () {
       this.currentPageIndex = Math.ceil(Object.keys(this.movies).length / this.nbRowPerPage) - 1
+    },
+    goprevious (){
+      if(0<=(this.currentPageIndex - 1)){
+        this.currentPageIndex = this.currentPageIndex - 1
+      }
+    },
+    gonext (){
+      if((this.currentPageIndex + 1)<=(Math.ceil(Object.keys(this.movies).length / this.nbRowPerPage) - 1)){
+        this.currentPageIndex = this.currentPageIndex + 1
+      }
     }
   }
 }
@@ -118,14 +126,14 @@ export default {
   height: 280px !important;
 }
 .card{
-  height: 600px;
+  height: 500px;
 }
 .card-title{
   display: block;
   display: -webkit-box;
   max-width: 400px;
   margin: 0 auto;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -135,12 +143,16 @@ export default {
   display: -webkit-box;
   max-width: 400px;
   margin: 0 auto;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .card-footer{
   padding : 10px;
+}
+#title{
+  font-size: 200%;
+  margin-left: 1%;
 }
 </style>
