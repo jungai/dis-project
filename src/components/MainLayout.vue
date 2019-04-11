@@ -1,9 +1,9 @@
 <template>
   <div class="wrap">
-    <Navbar
+    <!-- <Navbar
       :itClick="clickSignIn"
       @asdas="clickSignIn2 = $event"
-      @did-click="clickSignIn = $event"/>
+      @did-click="clickSignIn = $event"/> -->
     <FilterSearch class="mb-4"/>
     <b-row>
       <b-col md="8" lg="8">

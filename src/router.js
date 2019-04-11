@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Home from './views/Home.vue'
+import MainLayout from './components/MainLayout'
+// import PostDetail from './components/PostDetail'
 
 Vue.use(Router)
 
@@ -8,11 +9,16 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/',
+      name: 'main',
+      component: MainLayout
+    }
     // {
-    //   path: '/',
-    //   name: 'home',
-    //   component: Home
-    // },
+    //   path: '/movie-review/:id',
+    //   name: 'review',
+    //   component: PostDetail
+    // }
     // {
     //   path: '/about',
     //   name: 'about',
