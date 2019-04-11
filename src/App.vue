@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <MainLayout/>
+    <!-- <MainLayout/> -->
+    <Navbar/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Navbar from '@/components/Navbar'
 import MainLayout from '@/components/MainLayout'
 // import Test from '@/components/Popular'
 export default {
   components: {
-    MainLayout
-    // Test
+    MainLayout,
+    Navbar
   },
   data: () => ({
     popularVote: [
