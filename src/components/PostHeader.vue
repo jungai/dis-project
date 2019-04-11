@@ -1,16 +1,16 @@
 <template>
   <div>
-        <b-row >
-            <b-col style="padding-right:0px;" lg="3" md="3" class="d-none d-md-block">
-                 <b-img style="width:100%;padding:15px;" height="360" src="https://upload.wikimedia.org/wikipedia/en/8/85/Captain_Marvel_poster.jpg" alt="Left image"></b-img>
-            </b-col>
-            <b-col lg="9" md="9" sm="12">
-                    <div>
-                        <iframe style="width:100%;padding:15px;" frameborder="0" height="360" src=
-                        "//www.youtube.com/embed/0LHxvxdRnYc"></iframe>
-                    </div>
-            </b-col>
-        </b-row>
+    <b-row >
+        <b-col lg="3" md="3" class="d-none d-md-block pr-0">
+              <b-img style="width:100%;padding:15px;" class="pr-0" height="360" src="https://upload.wikimedia.org/wikipedia/en/8/85/Captain_Marvel_poster.jpg" alt="Left image"></b-img>
+        </b-col>
+        <b-col lg="9" md="9" sm="12">
+                <div>
+                    <iframe style="width:100%;padding:15px;" frameborder="0" height="360" src=
+                    "//www.youtube.com/embed/0LHxvxdRnYc"></iframe>
+                </div>
+        </b-col>
+    </b-row>
   </div>
 </template>
 

@@ -6,7 +6,7 @@
       @did-click="clickSignIn = $event"/> -->
     <!-- <FilterSearch class="mb-4"/>
       @did-click="clickSignIn = $event"/> -->
-    <!-- <FilterSearch class="mb-4"/>
+    <FilterSearch class="mb-4"/>
     <b-row>
       <b-col md="8" lg="8">
         <MovieCards/>
@@ -22,8 +22,8 @@
     </b-modal>
     <b-modal class="modal-title" hide-footer title="สมัครสมาชิก" v-model="clickSignIn2">
       <SignUp/>[]
-    </b-modal> -->
-    <PostHeader/>
+    </b-modal>
+    <!-- <PostHeader/> -->
   </div>
 </template>
 
