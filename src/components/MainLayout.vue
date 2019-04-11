@@ -2,11 +2,11 @@
   <div class="wrap">
     <Navbar
       :itClick="clickSignIn"
-      @did-click="clickSignIn = $event"
-      @did-click2="clickSignIn2 = $event"/>
+      @asdas="clickSignIn2 = $event"
+      @did-click="clickSignIn = $event"/>
     <FilterSearch class="mb-4"/>
-    <b-row class="pp">
-      <b-col md="8" lg="8">
+    <b-row>
+      <b-col md="7" lg="7">
         <MovieCards/>
       </b-col>
       <b-col md="4" lg="4">
@@ -15,10 +15,11 @@
           :popular="popularVote"/>
       </b-col>
     </b-row>
-    <b-modal id="modal-1" title="BootstrapVue" v-model="clickSignIn">
+    //maybe can use slot
+    <b-modal class="modal-title" hide-footer title="เข้าสู่ระบบ" v-model="clickSignIn">
       <Login/>
     </b-modal>
-    <b-modal id="modal-1" title="BootstrapVue" v-model="clickSignIn2">
+    <b-modal class="modal-title" hide-footer title="สมัครสมาชิก" v-model="clickSignIn2">
       <SignUp/>
     </b-modal>
   </div>
@@ -30,12 +31,10 @@ import Login from '@/components/Login'
 import Popular from '@/components/Popular/index'
 import FilterSearch from '@/components/FilterSearch'
 import Navbar from '@/components/Navbar'
-import ModalLogin from '@/components/ModalLogin'
 import MovieCards from '@/components/MovieCards'
 export default {
   components: {
     Navbar,
-    ModalLogin,
     MovieCards,
     FilterSearch,
     Popular,
@@ -45,6 +44,7 @@ export default {
   data: () => ({
     clickSignIn: false,
     clickSignIn2: false,
+    showDismissibleAlert: true,
     popularVote: [
       {
         image: 'https://lumiere-a.akamaihd.net/v1/images/homepage_avengersageofultron_hero_phase3_6c1f86f5.jpeg',
@@ -68,7 +68,12 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/mixins/fade.scss';
+@import url('https://fonts.googleapis.com/css?family=Kanit');
 @include fade();
+
+.modal-title {
+  font-family: 'Kanit', sans-serif;
+}
 
 .wrap {
   overflow-x: hidden

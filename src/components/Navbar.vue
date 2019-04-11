@@ -1,25 +1,25 @@
 <template>
   <div>
-    <b-navbar class="p-1 border border-secondary">
+    <b-navbar class="p-1 border border-secondary d-lg-flex justify-content-lg-around d-md-flex justify-content-md-around">
       <b-navbar-brand href="#">
         <img src="@/assets/moviereview.png" alt="wait for real" class="logo">
         Review2Free
       </b-navbar-brand>
-      <b-navbar-nav class="ml-auto">
-        <b-nav-item
+      <b-navbar-nav>
+        <!-- <b-nav-item
           class="d-md-none"
           @click="$emit('did-click', !itClick)">
           <span class="h2">
             <i class="far fa-user-circle"></i>
           </span>
-        </b-nav-item>
+        </b-nav-item> -->
         <b-nav-item
         class="d-none d-md-block">
           <b-button  @click="$emit('did-click', true)" variant="link" class="mx-2">
-              Sign in
+              เข้าสู่ระบบ
           </b-button>
-          <b-button  @click="$emit('did-click2', true)" variant="primary"  class="mx-2" >
-              Sign up
+          <b-button  @click="$emit('asdas', true)" variant="primary"  class="mx-2" >
+              สมัครสมาชิก
           </b-button>
         </b-nav-item>
       </b-navbar-nav>
@@ -29,17 +29,23 @@
 
 <script>
 export default {
-  name: 'navbar',
-  props: {
-    itClick: {
-      type: Boolean,
-      default: false
-    }
-  }
+  name: 'navbar'
+  // props: {
+  //   itClick: {
+  //     type: Boolean,
+  //     default: false
+  //   }
+  // }
 }
 </script>
 
-<style>
+<style lang="css" scoped>
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
+* {
+  font-family: 'Kanit', sans-serif;
+}
+
 .logo {
   height: 38px;
 }
