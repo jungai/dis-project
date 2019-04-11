@@ -3,7 +3,9 @@
     <b-row>
       <b-col md="8" lg="8">
         <Title :text="data.title"/>
-        <PostHeader/>
+        <PostHeader
+          :image="data.image"
+          :embed="data.embed"/>
         <Detail :reviews="data.review"/>
         <CommentBox
           :isFetch="isFetch"
@@ -45,10 +47,12 @@ export default {
     }
   },
   async created () {
+    const path = this.$route.params.id
+    console.log(path)
     try {
-      const { data } = await axios.get('http://localhost:3000/reviews')
-      console.log('data', data[0].comments)
-      this.data = data[0]
+      const { data } = await axios.get(`http://localhost:3000/reviews/${path}`)
+      console.log('ff', data.image)
+      this.data = data
     } catch (error) {
     }
   },
