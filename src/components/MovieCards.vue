@@ -29,15 +29,26 @@
 
 <script>
 import json from '../data/data.json'
+import axios from 'axios';
 export default {
   data: function () {
     return {
-      movies: json,
+      movies: [],
       paginatedMovies: [],
       nbPages: 0,
       nbRowPerPage: 4,
-      currentPageIndex: 0
+      currentPageIndex: 0,
     }
+  },
+  created() {
+    axios.get(`http://localhost:3000/reviews`)
+    .then(response => {
+      // JSON responses are automatically parsed.
+      this.movies = response.data
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
   },
   computed: {
     formattedMovies () {
@@ -86,6 +97,14 @@ export default {
       if((this.currentPageIndex + 1)<=(Math.ceil(Object.keys(this.movies).length / this.nbRowPerPage) - 1)){
         this.currentPageIndex = this.currentPageIndex + 1
       }
+    },
+    fetchProducts(){
+          {
+              this.$http.get('http://localhost:3000/reviews').then((response) => {
+                console.log(response.body);
+                  this.products = response.body;
+              });
+          }
     }
   }
 }
