@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import MainLayout from './components/MainLayout'
-// import PostDetail from './components/PostDetail'
+import PostDetail from './components/PostDetail'
 
 Vue.use(Router)
 
@@ -13,12 +13,12 @@ export default new Router({
       path: '/',
       name: 'main',
       component: MainLayout
+    },
+    {
+      path: '/movie-review/:id',
+      name: 'review',
+      component: PostDetail
     }
-    // {
-    //   path: '/movie-review/:id',
-    //   name: 'review',
-    //   component: PostDetail
-    // }
     // {
     //   path: '/about',
     //   name: 'about',

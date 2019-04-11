@@ -12,7 +12,7 @@
                 {{movie.review}}
               </b-card-text>
               <div slot="footer">
-                <b-btn variant="primary" block style="padding:5px;" >อ่านรีวิว</b-btn>
+                <router-link to="/movie-review/asda"><b-btn variant="primary" block style="padding:5px;" >อ่านรีวิว</b-btn></router-link>
               </div>
             </b-card>
             <b-card v-for="index in lastPageClubs" :key="index" class="d-none d-sm-block invisible_card" style="border:0;"/>
