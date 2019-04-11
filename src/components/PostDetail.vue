@@ -5,6 +5,11 @@
         <Title :text="data.title"/>
         <PostHeader/>
         <Detail :reviews="data.review"/>
+        <CommentBox
+          :isFetch="isFetch"
+          :list="[data]"
+          @post="postData"/>
+        <CommentList :list="[data]"/>
       </b-col>
       <b-col md="4" lg="4">
         <Popular
@@ -17,27 +22,43 @@
 
 <script>
 import Title from '@/components/Post/Title'
+import CommentBox from '@/components/Post/CommentBox'
 import PostHeader from '@/components/PostHeader'
 import Detail from '@/components/Post/Detail'
 import axios from 'axios'
 import Popular from '@/components/Popular/index'
-
+import CommentList from '@/components/Post/CommentList'
 export default {
   components: {
     Title,
     Detail,
     PostHeader,
-    Popular
+    Popular,
+    CommentBox,
+    CommentList
+  },
+  watch: {
+    async isFetch () {
+      const { data } = await axios.get('http://localhost:3000/reviews')
+      console.log('new fetch', data[0])
+      this.data = data[0]
+    }
   },
   async created () {
     try {
       const { data } = await axios.get('http://localhost:3000/reviews')
-      console.log(data[0])
+      console.log('data', data[0].comments)
       this.data = data[0]
     } catch (error) {
     }
   },
+  methods: {
+    postData (val) {
+      this.isFetch = val
+    }
+  },
   data: () => ({
+    isFetch: false,
     data: [],
     popularVote: [
       {

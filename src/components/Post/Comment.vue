@@ -1,19 +1,24 @@
 <template>
-  <div>
-    <h2>Comment</h2>
-    <b-form-textarea
-      id="textarea"
-      v-model="text"
-      placeholder="Enter something..."
-      rows="3"
-      max-rows="6"
-    ></b-form-textarea>
-  </div>
+  <b-card
+    title="Card Title"
+    tag="article"
+    style="max-width: 20rem;"
+    class="mb-2"
+  >
+    <b-card-text>
+      {{ msg }}
+    </b-card-text>
+  </b-card>
 </template>
 
 <script>
 export default {
-
+  props: {
+    msg: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
 
