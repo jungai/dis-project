@@ -30,12 +30,12 @@ import Login from '@/components/Login'
 import Popular from '@/components/Popular/index'
 import FilterSearch from '@/components/FilterSearch'
 import Navbar from '@/components/Navbar'
-import ModalLogin from '@/components/ModalLogin'
+// import ModalLogin from '@/components/ModalLogin'
 import MovieCards from '@/components/MovieCards'
 export default {
   components: {
     Navbar,
-    ModalLogin,
+    // ModalLogin,
     MovieCards,
     FilterSearch,
     Popular,
@@ -49,17 +49,17 @@ export default {
       {
         image: 'https://lumiere-a.akamaihd.net/v1/images/homepage_avengersageofultron_hero_phase3_6c1f86f5.jpeg',
         movieName: 'The Avengers',
-        description: 'Earths mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.'
+        description: 'ฮีโร่ผู้ทรงพลังที่สุดในโลกต้องมารวมกันและเรียนรู้ที่จะต่อสู้เป็นทีมหากพวกเขาจะหยุดโลกิที่ซุกซนและกองทัพมนุษย์ต่างดาวของเขาจากการกดขี่มนุษย์.'
       },
       {
         image: 'https://i.ytimg.com/vi/04k73SUkhXg/maxresdefault.jpg',
         movieName: 'Ralph breaks the internet',
-        description: 'Six years after the events of "Wreck-It Ralph," Ralph and Vanellope, now friends, discover a wi-fi router in their arcade, leading them into a new adventure.'
+        description: 'หกปีหลังจากเหตุการณ์ "Wreck-It Ralph" Ralph และ Vanellope ตอนนี้เพื่อน ๆ ค้นพบเราเตอร์ Wi-Fi ในอาร์เคดของพวกเขานำพวกเขาไปสู่การผจญภัยครั้งใหม่'
       },
       {
         image: 'https://cdn3.movieweb.com/i/article/jmls4qMXpv7sB6kKATEkyaTDJfiiXd/798:50/Captain-Marvel-Movie-Set-Photos-Carol-Danvers-Brie.jpg',
         movieName: 'captain marvel',
-        description: 'Carol Danvers becomes one of the universe s most powerful heroes when Earth is caught in the middle of a galactic war between two alien races.'
+        description: 'แครอลแดนเวอร์กลายเป็นหนึ่งในวีรบุรุษที่ทรงพลังที่สุดของจักรวาลเมื่อโลกถูกจับได้กลางสงครามกาแล็กซี่ระหว่างสองเผ่าพันธุ์มนุษย์ต่างดาว'
       }
     ]
   })
