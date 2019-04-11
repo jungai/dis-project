@@ -29,7 +29,7 @@
 
 <script>
 import json from '../data/data.json'
-import axios from 'axios';
+import axios from 'axios'
 export default {
   data: function () {
     return {
@@ -37,18 +37,18 @@ export default {
       paginatedMovies: [],
       nbPages: 0,
       nbRowPerPage: 4,
-      currentPageIndex: 0,
+      currentPageIndex: 0
     }
   },
-  created() {
+  created () {
     axios.get(`http://localhost:3000/reviews`)
-    .then(response => {
+      .then(response => {
       // JSON responses are automatically parsed.
-      this.movies = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
+        this.movies = response.data
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
   },
   computed: {
     formattedMovies () {
@@ -88,23 +88,23 @@ export default {
     golast () {
       this.currentPageIndex = Math.ceil(Object.keys(this.movies).length / this.nbRowPerPage) - 1
     },
-    goprevious (){
-      if(0<=(this.currentPageIndex - 1)){
+    goprevious () {
+      if ((this.currentPageIndex - 1) >= 0) {
         this.currentPageIndex = this.currentPageIndex - 1
       }
     },
-    gonext (){
-      if((this.currentPageIndex + 1)<=(Math.ceil(Object.keys(this.movies).length / this.nbRowPerPage) - 1)){
+    gonext () {
+      if ((this.currentPageIndex + 1) <= (Math.ceil(Object.keys(this.movies).length / this.nbRowPerPage) - 1)) {
         this.currentPageIndex = this.currentPageIndex + 1
       }
     },
-    fetchProducts(){
-          {
-              this.$http.get('http://localhost:3000/reviews').then((response) => {
-                console.log(response.body);
-                  this.products = response.body;
-              });
-          }
+    fetchProducts () {
+      {
+        this.$http.get('http://localhost:3000/reviews').then((response) => {
+          console.log(response.body)
+          this.products = response.body
+        })
+      }
     }
   }
 }
