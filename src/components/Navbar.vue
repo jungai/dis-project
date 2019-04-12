@@ -15,10 +15,10 @@
         </b-nav-item> -->
         <b-nav-item
         class="d-none d-md-block">
-          <b-button  @click="$emit('did-click', true)" variant="link" class="mx-2">
+          <b-button  @click="$emit('SignIn', true)" variant="link" class="mx-2">
               เข้าสู่ระบบ
           </b-button>
-          <b-button  @click="$emit('asdas', true)" variant="primary"  class="mx-2" >
+          <b-button  @click="$emit('SignUp', true)" variant="primary"  class="mx-2" >
               สมัครสมาชิก
           </b-button>
         </b-nav-item>
@@ -30,12 +30,6 @@
 <script>
 export default {
   name: 'navbar'
-  // props: {
-  //   itClick: {
-  //     type: Boolean,
-  //     default: false
-  //   }
-  // }
 }
 </script>
 

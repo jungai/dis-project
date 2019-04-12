@@ -17,33 +17,20 @@
           :popular="popularVote"/>
       </b-col>
     </b-row>
-    <b-modal class="modal-title" hide-footer title="เข้าสู่ระบบ" v-model="clickSignIn">
-      <Login/>
-    </b-modal>
-    <b-modal class="modal-title" hide-footer title="สมัครสมาชิก" v-model="clickSignIn2">
-      <SignUp/>[]
-    </b-modal>
     <!-- <PostHeader/> -->
   </div>
 </template>
 
 <script>
-import SignUp from '@/components/SignUp'
-import Login from '@/components/Login'
 import Popular from '@/components/Popular/index'
 import FilterSearch from '@/components/FilterSearch'
-import Navbar from '@/components/Navbar'
 import MovieCards from '@/components/MovieCards'
-import PostHeader from '@/components/PostHeader'
+
 export default {
   components: {
-    Navbar,
     MovieCards,
     FilterSearch,
-    Popular,
-    Login,
-    SignUp,
-    PostHeader
+    Popular
   },
   data: () => ({
     clickSignIn: false,
@@ -72,12 +59,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/mixins/fade.scss';
-@import url('https://fonts.googleapis.com/css?family=Kanit');
 @include fade();
-
-.modal-title {
-  font-family: 'Kanit', sans-serif;
-}
 
 .wrap {
   overflow-x: hidden

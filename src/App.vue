@@ -1,41 +1,39 @@
 <template>
   <div id="app">
-    <!-- <MainLayout/> -->
-    <Navbar/>
+    <Navbar
+      @SignUp="showSignUp = $event"
+      @SignIn="showSignIn = $event"/>
     <router-view></router-view>
+    <b-modal class="modal-titlee" hide-footer title="เข้าสู่ระบบ" v-model="showSignIn">
+      <Login/>
+    </b-modal>
+    <b-modal class="modal-titlee" hide-footer title="สมัครสมาชิก" v-model="showSignUp">
+      <SignUp/>
+    </b-modal>
   </div>
 </template>
 
 <script>
+import SignUp from '@/components/SignUp'
+import Login from '@/components/Login'
 import Navbar from '@/components/Navbar'
-import MainLayout from '@/components/MainLayout'
-// import Test from '@/components/Popular'
 export default {
   components: {
-    MainLayout,
-    Navbar
+    Navbar,
+    SignUp,
+    Login
   },
   data: () => ({
-    popularVote: [
-      {
-        image: 'https://lumiere-a.akamaihd.net/v1/images/homepage_avengersageofultron_hero_phase3_6c1f86f5.jpeg',
-        movieName: 'The Avengers',
-        description: 'Earths mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.'
-      },
-      {
-        image: 'https://i.ytimg.com/vi/04k73SUkhXg/maxresdefault.jpg',
-        movieName: 'Ralph breaks the internet',
-        description: 'Six years after the events of "Wreck-It Ralph," Ralph and Vanellope, now friends, discover a wi-fi router in their arcade, leading them into a new adventure.'
-      },
-      {
-        image: 'https://cdn3.movieweb.com/i/article/jmls4qMXpv7sB6kKATEkyaTDJfiiXd/798:50/Captain-Marvel-Movie-Set-Photos-Carol-Danvers-Brie.jpg',
-        movieName: 'captain marvel',
-        description: 'Carol Danvers becomes one of the universe s most powerful heroes when Earth is caught in the middle of a galactic war between two alien races.'
-      }
-    ]
+    showSignUp: false,
+    showSignIn: false
   })
 }
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
+.modal-titlee {
+  font-family: 'Kanit', sans-serif;
+}
 </style>
