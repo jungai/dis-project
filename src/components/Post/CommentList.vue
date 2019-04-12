@@ -13,8 +13,8 @@ export default {
   },
   props: {
     list: {
-      type: Object,
-      default: () => {}
+      type: [Array, Object],
+      default: () => ({ msg: '' })
     }
   }
 }

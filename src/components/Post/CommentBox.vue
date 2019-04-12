@@ -17,8 +17,8 @@ import axios from 'axios'
 export default {
   props: {
     list: {
-      type: Object,
-      default: () => {}
+      type: [Array, Object],
+      default: () => ({})
     },
     isFetch: {
       type: Boolean,
@@ -34,7 +34,6 @@ export default {
   }),
   methods: {
     async post () {
-      console.log(this.$route.params.id)
       const cloneObj = {
         ...this.list,
         comments: [ ...this.list.comments, { msg: this.text } ] }
