@@ -37,7 +37,7 @@ export default {
       const cloneObj = {
         ...this.list,
         comments: [ ...this.list.comments, { msg: this.text } ] }
-      await axios.patch(`http://localhost:3000/reviews/${this.id}`, cloneObj)
+      await axios.patch(`https://ez-json-server.herokuapp.com/reviews/${this.id}`, cloneObj)
       this.$emit('post', !this.isFetch)
       this.text = ''
     }

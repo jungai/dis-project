@@ -42,14 +42,14 @@ export default {
   },
   watch: {
     async isFetch () {
-      const { data } = await axios.get(`http://localhost:3000/reviews/${this.path}`)
+      const { data } = await axios.get(`https://ez-json-server.herokuapp.com/reviews/${this.path}`)
       this.data = data
     }
   },
   async created () {
     this.path = this.$route.params.id
     try {
-      const { data } = await axios.get(`http://localhost:3000/reviews/${this.path}`)
+      const { data } = await axios.get(`https://ez-json-server.herokuapp.com/reviews/${this.path}`)
       this.data = data
     } catch (error) {
     }
