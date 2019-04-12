@@ -6,12 +6,13 @@
         <PostHeader
           :image="data.image"
           :embed="data.embed"/>
-        <Detail :reviews="data.review"/>
+        <Detail :review="data.review"/>
         <CommentBox
+          :id="this.$route.params.id"
           :isFetch="isFetch"
-          :list="[data]"
+          :list="data"
           @post="postData"/>
-        <CommentList :list="[data]"/>
+        <CommentList :list="data"/>
       </b-col>
       <b-col md="4" lg="4">
         <Popular
@@ -41,17 +42,14 @@ export default {
   },
   watch: {
     async isFetch () {
-      const { data } = await axios.get('http://localhost:3000/reviews')
-      console.log('new fetch', data[0])
-      this.data = data[0]
+      const { data } = await axios.get(`http://localhost:3000/reviews/${this.path}`)
+      this.data = data
     }
   },
   async created () {
-    const path = this.$route.params.id
-    console.log(path)
+    this.path = this.$route.params.id
     try {
-      const { data } = await axios.get(`http://localhost:3000/reviews/${path}`)
-      console.log('ff', data.image)
+      const { data } = await axios.get(`http://localhost:3000/reviews/${this.path}`)
       this.data = data
     } catch (error) {
     }
@@ -62,6 +60,7 @@ export default {
     }
   },
   data: () => ({
+    path: null,
     isFetch: false,
     data: [],
     popularVote: [

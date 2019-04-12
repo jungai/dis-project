@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Comment v-for="(li, index) in list[0].comments" :key="index" :msg="li.msg"/>
+    <Comment v-for="(li, index) in list.comments" :key="index" :msg="li.msg"/>
   </div>
 </template>
 
@@ -13,8 +13,8 @@ export default {
   },
   props: {
     list: {
-      type: Array,
-      default: () => []
+      type: Object,
+      default: () => {}
     }
   }
 }

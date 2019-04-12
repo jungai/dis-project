@@ -17,12 +17,16 @@ import axios from 'axios'
 export default {
   props: {
     list: {
-      type: Array,
+      type: Object,
       default: () => {}
     },
     isFetch: {
       type: Boolean,
       default: false
+    },
+    id: {
+      type: String,
+      required: true
     }
   },
   data: () => ({
@@ -30,12 +34,11 @@ export default {
   }),
   methods: {
     async post () {
-      // console.log('before new msg', this.list[0])
+      console.log(this.$route.params.id)
       const cloneObj = {
-        ...this.list[0],
-        comments: [ ...this.list[0].comments, { msg: this.text } ] }
-      console.log('clone', cloneObj)
-      await axios.patch('http://localhost:3000/reviews/1', cloneObj)
+        ...this.list,
+        comments: [ ...this.list.comments, { msg: this.text } ] }
+      await axios.patch(`http://localhost:3000/reviews/${this.id}`, cloneObj)
       this.$emit('post', !this.isFetch)
       this.text = ''
     }

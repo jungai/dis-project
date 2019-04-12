@@ -1,11 +1,11 @@
 <template>
-  <p> {{reviews }} </p>
+  <p> {{ review }} </p>
 </template>
 
 <script>
 export default {
   props: {
-    reviews: {
+    review: {
       type: String,
       default: ''
     }
