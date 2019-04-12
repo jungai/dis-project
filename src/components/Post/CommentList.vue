@@ -14,7 +14,7 @@ export default {
   props: {
     list: {
       type: [Array, Object],
-      default: () => ({ msg: '' })
+      default: () => ({})
     }
   }
 }
