@@ -110,6 +110,8 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
 .reviewcard{
   margin: 15px;
 }
@@ -172,5 +174,6 @@ export default {
 #title{
   font-size: 200%;
   margin-left: 1%;
+  font-family: 'Kanit', sans-serif;
 }
 </style>

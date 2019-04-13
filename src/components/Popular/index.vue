@@ -2,7 +2,7 @@
   <b-container fluid>
     <b-row>
       <b-col >
-        <h1 class="my-3 py-2">{{ header }}</h1>
+        <h1 class="header-text">{{ header }}</h1>
           <b-list-group flush class="mb-3">
             <b-list-group-item
               button
@@ -49,6 +49,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
+.header-text {
+  font-family: 'Kanit', sans-serif;
+}
+
 .claimedRight {
     display:        block;
     height:          80px;

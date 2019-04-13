@@ -13,7 +13,7 @@
       </b-col>
       <b-col md="4" lg="4">
         <Popular
-          header="😀 Popular"
+          header="🍿 ยอดนิยม"
           :popular="popularVote"/>
       </b-col>
     </b-row>

@@ -4,6 +4,7 @@
       @SignUp="showSignUp = $event"
       @SignIn="showSignIn = $event"/>
     <router-view></router-view>
+    <Footer/>
     <b-modal class="modal-titlee" hide-footer title="เข้าสู่ระบบ" v-model="showSignIn">
       <Login/>
     </b-modal>
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import Footer from '@/components/Footer'
 import SignUp from '@/components/SignUp'
 import Login from '@/components/Login'
 import Navbar from '@/components/Navbar'
@@ -21,7 +23,8 @@ export default {
   components: {
     Navbar,
     SignUp,
-    Login
+    Login,
+    Footer
   },
   data: () => ({
     showSignUp: false,
