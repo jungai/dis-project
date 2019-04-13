@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar
+    <Header
       @SignUp="showSignUp = $event"
       @SignIn="showSignIn = $event"/>
     <router-view></router-view>
@@ -18,10 +18,10 @@
 import Footer from '@/components/Footer'
 import SignUp from '@/components/SignUp'
 import Login from '@/components/Login'
-import Navbar from '@/components/Navbar'
+import Header from '@/components/Header'
 export default {
   components: {
-    Navbar,
+    Header,
     SignUp,
     Login,
     Footer
