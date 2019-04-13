@@ -2,7 +2,9 @@
   <div>
     <b-navbar class="p-1 border border-secondary d-lg-flex justify-content-lg-around d-md-flex justify-content-md-around">
       <b-navbar-brand href="#">
-        <img src="@/assets/logoeiei.png" alt="logo" class="logo">
+        <router-link to="/">
+          <img src="@/assets/logoeiei.png" alt="logo" class="logo">
+        </router-link>
       </b-navbar-brand>
       <b-navbar-nav>
         <!-- <b-nav-item
