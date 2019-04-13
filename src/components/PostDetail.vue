@@ -47,6 +47,9 @@ export default {
       this.data = data
     }
   },
+  mounted () {
+    window.scrollTo(0, 0)
+  },
   async created () {
     this.path = this.$route.params.id
     try {
