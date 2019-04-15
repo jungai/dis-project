@@ -40,7 +40,7 @@ export default {
     }
   },
   created () {
-    axios.get(`http://localhost:3000/reviews`)
+    axios.get(`https://ez-json-server.herokuapp.com/reviews`)
       .then(response => {
       // JSON responses are automatically parsed.
         this.movies = response.data
@@ -99,7 +99,7 @@ export default {
     },
     fetchProducts () {
       {
-        this.$http.get('http://localhost:3000/reviews').then((response) => {
+        this.$http.get('https://ez-json-server.herokuapp.com/reviews').then((response) => {
           console.log(response.body)
           this.products = response.body
         })
