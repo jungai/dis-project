@@ -120,11 +120,10 @@ export default {
         const result = this.searchResult.map(each => {
           let lowerText = each.name.toLowerCase()
           if (lowerText.indexOf(this.search) !== -1) {
-            return each.name
+            return each
           }
         })
         this.dataForSearch = result.filter(e => e !== undefined)
-        console.log(this.dataForSearch)
       }
     }
   }
