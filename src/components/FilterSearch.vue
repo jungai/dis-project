@@ -115,7 +115,7 @@ export default {
   methods: {
     async searchByMovieName () {
       if (this.search !== '') {
-        const { data } = await axios('http://localhost:3000/reviews')
+        const { data } = await axios('https://ez-json-server.herokuapp.com/reviews')
         this.searchResult = data
         const result = this.searchResult.map(each => {
           let lowerText = each.name.toLowerCase()
