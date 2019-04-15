@@ -20,8 +20,17 @@
         <b-col lg="6" md="12" sm="12">
           <b-input-group>
             <span class="prepend-icon"><i class="fas fa-search"></i></span>
-            <b-form-input placeholder="ค้นหาหนังที่ต้องการ"></b-form-input>
+            <b-form-input
+              v-model="search"
+              placeholder="ค้นหาหนังที่ต้องการ"
+              @input="searchByMovieName"></b-form-input>
           </b-input-group>
+          <div
+            class="show-selected"
+            v-if="search !== ''">
+            <ListGroup
+              :rawData="dataForSearch"/>
+            </div>
         </b-col>
       </div>
       <b-row class="justify-content-center p-3" v-if="!isActive">
@@ -84,6 +93,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import ListGroup from '@/components/ListGroup'
 
 export default {
@@ -95,10 +105,28 @@ export default {
   },
   data: () => ({
     isActive: true,
+    search: '',
+    searchResult: [],
     filterBox1: false,
     filterBox2: false,
-    filterBox3: false
-  })
+    filterBox3: false,
+    dataForSearch: []
+  }),
+  methods: {
+    async searchByMovieName () {
+      if (this.search !== '') {
+        const { data } = await axios('http://localhost:3000/reviews')
+        this.searchResult = data
+        const result = this.searchResult.map(each => {
+          let lowerText = each.name.toLowerCase()
+          if (lowerText.indexOf(this.search) !== -1) {
+            return each
+          }
+        })
+        this.dataForSearch = result.filter(e => e !== undefined)
+      }
+    }
+  }
 }
 </script>
 
