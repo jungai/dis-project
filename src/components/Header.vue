@@ -16,11 +16,14 @@
         </b-nav-item> -->
         <b-nav-item
         class="d-none d-md-block">
-          <b-button  @click="$emit('SignIn', true)" variant="link" class="mx-2 text-secondary">
+          <b-button v-if="isAuth" @click="$emit('SignIn', true)" variant="link" class="mx-2 text-secondary">
               เข้าสู่ระบบ
           </b-button>
-          <b-button  @click="$emit('SignUp', true)" variant="primary"  class="mx-2 text-light" >
+          <b-button  v-if="isAuth" @click="$emit('SignUp', true)" variant="primary"  class="mx-2 text-light" >
               สมัครสมาชิก
+          </b-button>
+          <b-button  v-if="!isAuth" variant="primary"  class="mx-2 text-light" >
+              {{name}}
           </b-button>
         </b-nav-item>
       </b-navbar-nav>
@@ -30,7 +33,15 @@
 
 <script>
 export default {
-  name: 'navbar'
+  name: 'navbar',
+  computed: {
+    isAuth () {
+      return !this.$store.state.isAuth
+    },
+    name () {
+      return this.$store.state.name
+    }
+  }
 }
 </script>
 

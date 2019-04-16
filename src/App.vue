@@ -6,7 +6,8 @@
     <router-view></router-view>
     <Footer/>
     <b-modal class="modal-titlee" hide-footer title="เข้าสู่ระบบ" v-model="showSignIn">
-      <Login/>
+      <Login
+        @close="showSignIn = $event"/>
     </b-modal>
     <b-modal class="modal-titlee" hide-footer title="สมัครสมาชิก" v-model="showSignUp">
       <SignUp/>
