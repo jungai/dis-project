@@ -30,8 +30,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   data () {
     return {
@@ -43,15 +41,12 @@ export default {
   },
   methods: {
     async register () {
-      try {
-        await axios.post(`http://localhost:3000/user`, {
+      await this.$store.dispatch('signUp',
+        {
           name: this.name,
           email: this.email,
           password: this.password
         })
-      } catch (error) {
-        // todos
-      }
     }
   }
 }
