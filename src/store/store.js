@@ -13,21 +13,29 @@ export const store = new Vuex.Store({
   },
   actions: {
     async signUp ({ commit }, authData) {
-      const res = await axios.post('http://localhost:3000/custom/user', {
-        name: authData.name,
-        email: authData.email,
-        password: authData.password
-      })
-      commit('SIGN_UP', res.data)
-      console.log('signUp', res)
+      try {
+        const res = await axios.post('http://localhost:3000/custom/user', {
+          name: authData.name,
+          email: authData.email,
+          password: authData.password
+        })
+        commit('SIGN_UP', res.data)
+        console.log('signUp', res)
+      } catch (error) {
+        console.log('handle', error)
+      }
     },
     async signIn ({ commit }, authData) {
-      const res = await axios.post('http://localhost:3000/login', {
-        email: authData.email,
-        password: authData.password
-      })
-      commit('SIGN_IN', res.data)
-      console.log('signIn', res.data)
+      try {
+        const res = await axios.post('http://localhost:3000/login', {
+          email: authData.email,
+          password: authData.password
+        })
+        commit('SIGN_IN', res.data)
+        console.log('signIn', res.data)
+      } catch (error) {
+        console.log('handle', error)
+      }
     }
   },
   mutations: {
