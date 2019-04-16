@@ -14,7 +14,7 @@ export const store = new Vuex.Store({
   actions: {
     async signUp ({ commit }, authData) {
       try {
-        const res = await axios.post('http://localhost:3000/custom/user', {
+        const res = await axios.post('https://ez-json-server.herokuapp.com/user', {
           name: authData.name,
           email: authData.email,
           password: authData.password
@@ -27,7 +27,7 @@ export const store = new Vuex.Store({
     },
     async signIn ({ commit }, authData) {
       try {
-        const res = await axios.post('http://localhost:3000/login', {
+        const res = await axios.post('https://ez-json-server.herokuapp.com/login', {
           email: authData.email,
           password: authData.password
         })
