@@ -24,7 +24,7 @@
         </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="d-md-none">
-        <b-nav-item class="mx-4">
+        <b-nav-item class="mx-2">
           <i
           v-if="isAuth"
           class="fas fa-user-circle icon"
