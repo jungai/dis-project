@@ -1,21 +1,17 @@
 <template>
   <div>
-    <b-navbar class="p-1 border border-secondary d-lg-flex justify-content-lg-around d-md-flex justify-content-md-around">
+    <b-navbar class="p-1 border border-secondary
+    d-lg-flex justify-content-lg-around
+    d-md-flex justify-content-md-around
+    d-flex justify-content-between">
       <b-navbar-brand href="#">
         <router-link to="/">
           <img src="@/assets/logoeiei.png" alt="logo" class="logo">
         </router-link>
       </b-navbar-brand>
-      <b-navbar-nav>
-        <!-- <b-nav-item
-          class="d-md-none"
-          @click="$emit('did-click', !itClick)">
-          <span class="h2">
-            <i class="far fa-user-circle"></i>
-          </span>
-        </b-nav-item> -->
-        <b-nav-item
-        class="d-none d-md-block">
+      <b-navbar-nav
+      >
+        <b-nav-item class="d-none d-md-block">
           <b-button v-if="isAuth" @click="$emit('SignIn', true)" variant="link" class="mx-2 text-secondary">
               เข้าสู่ระบบ
           </b-button>
@@ -27,6 +23,17 @@
           </b-button>
         </b-nav-item>
       </b-navbar-nav>
+      <b-navbar-nav class="d-md-none">
+        <b-nav-item class="mx-4">
+          <i
+          v-if="isAuth"
+          class="fas fa-user-circle icon"
+          @click="$emit('SignIn', true)"/>
+          <b-button  v-if="!isAuth" variant="primary"  class="mx-2 text-light" >
+            {{name}}
+        </b-button>
+        </b-nav-item>
+      </b-navbar-nav>
     </b-navbar>
   </div>
 </template>
@@ -34,6 +41,7 @@
 <script>
 export default {
   name: 'navbar',
+
   computed: {
     isAuth () {
       return !this.$store.state.isAuth
@@ -48,16 +56,19 @@ export default {
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Kanit');
 
-* {
-  font-family: 'Kanit', sans-serif;
+button {
+  font-family:      'Kanit', sans-serif;
 }
-
+.icon {
+  color:            #1a8cff;
+  font-size:        30px;
+}
 .logo {
-  height: 50px;
+  height:           50px;
 
   @media only screen and (max-width: 768px) {
-    margin-left: -32px;
-    height: 40px;
+    margin-left:   -32px;
+    height:         40px;
   }
 }
 
