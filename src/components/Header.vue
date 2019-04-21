@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar class="p-1 border border-secondary
+    <b-navbar class="p-1 border border-light shadow-sm border-secondary
     d-lg-flex justify-content-lg-around
     d-md-flex justify-content-md-around
     d-flex justify-content-between">
@@ -18,8 +18,8 @@
           <b-button  v-if="isAuth" @click="$emit('SignUp', true)" variant="primary"  class="mx-2 text-light" >
               สมัครสมาชิก
           </b-button>
-          <b-button  v-if="!isAuth" variant="primary"  class="mx-2 text-light" >
-              {{name}}
+          <b-button  @click="showPopup" v-if="!isAuth" variant="outline-secondary"  class="mx-2 text-black" >
+              <i class="far fa-user-circle" style="font-size:1.4em;"></i>&nbsp;{{name}} <i class="fas fa-caret-down"></i>
           </b-button>
         </b-nav-item>
       </b-navbar-nav>
@@ -34,6 +34,7 @@
         </b-button>
         </b-nav-item>
       </b-navbar-nav>
+      <!-- <ModalLogin/> -->
     </b-navbar>
   </div>
 </template>
@@ -41,13 +42,20 @@
 <script>
 export default {
   name: 'navbar',
-
   computed: {
     isAuth () {
       return !this.$store.state.isAuth
     },
     name () {
       return this.$store.state.name
+    },
+    isClick () {
+      return this.$store.state.clickPopup
+    }
+  },
+  methods: {
+    showPopup () {
+      this.$store.commit('SHOW_POPUP', !this.isClick)
     }
   }
 }

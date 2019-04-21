@@ -1,13 +1,14 @@
 <template>
-  <div>
-    <h2>Comment</h2>
+  <div class="clearfix">
+    <h2>💬 Comments</h2>
     <b-form-textarea
+      class="mb-2"
       v-model="text"
       placeholder="Enter something..."
       rows="3"
       max-rows="6"
     ></b-form-textarea>
-    <b-button @click="post" variant="outline-primary">Button</b-button>
+    <b-button class="float-right" @click="post" variant="outline-primary">Post</b-button>
   </div>
 </template>
 
