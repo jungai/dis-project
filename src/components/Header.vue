@@ -15,12 +15,12 @@
           <b-button v-if="isAuth" @click="$emit('SignIn', true)" variant="link" class="mx-2 text-secondary">
               เข้าสู่ระบบ
           </b-button>
-          <b-button  v-if="isAuth" @click="$emit('SignUp', true)" variant="primary"  class="mx-2 text-light" >
+          <button  v-if="isAuth" @click="$emit('SignUp', true)" class="border rounded p-2 mx-2 text-secondary btn-colour-1" >
               สมัครสมาชิก
-          </b-button>
-          <b-button  @click="showPopup" v-if="!isAuth" variant="outline-secondary"  class="mx-2 text-black" >
+          </button>
+          <button  @click="showPopup" v-if="!isAuth" variant="outline-secondary"  class="border rounded p-2 mx-2 text-black btn-colour-1 text-secondary" >
               <i class="far fa-user-circle" style="font-size:1.4em;"></i>&nbsp;{{name}} <i class="fas fa-caret-down"></i>
-          </b-button>
+          </button>
         </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="d-md-none">
@@ -79,5 +79,19 @@ button {
     height:         40px;
   }
 }
+.btn-colour-1 {
+  background-color: transparent;
+  border-color: #003D4F;
+  letter-spacing: 0.05em;
+}
 
+.btn-colour-1:hover,
+.btn-colour-1:active,
+.btn-colour-1:focus,
+.btn-colour-1.active {
+  /* let's darken #004E64 a bit for hover effect */
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
 </style>
