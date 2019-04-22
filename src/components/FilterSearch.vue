@@ -113,9 +113,9 @@ export default {
   },
   async mounted () {
     // fetch data here
-    const { data: years } = await axios.get('http://localhost:3000/years')
-    const { data: categorys } = await axios.get('http://localhost:3000/categorys')
-    const { data: types } = await axios.get('http://localhost:3000/types')
+    const { data: years } = await axios.get('https://ez-json-server.herokuapp.com/years')
+    const { data: categorys } = await axios.get('https://ez-json-server.herokuapp.com/categorys')
+    const { data: types } = await axios.get('https://ez-json-server.herokuapp.com/types')
     this.years = years
     this.categorys = categorys
     this.types = types
