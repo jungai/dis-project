@@ -53,7 +53,7 @@ export default {
 }
 
 .boxx {
-  right: 310px;
+  right: 17.5vw;
   top: 60px;
 
   @media only screen and (max-width: 992px) {

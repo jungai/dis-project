@@ -15,7 +15,7 @@
           @post="postData"/>
         <CommentList :list="data" style="padding:5%;padding-top:0;padding-bottom:2%;border-bottom:solid 1px #e3e8ef;"/>
         <Popular style="padding:5%;padding-top:2%;padding-bottom:2%;border-bottom:solid 1px #e3e8ef;"
-          header="Popular"
+          header="🍿 ยอดนิยม"
           :popular="popularVote"/>
       </b-col>
       <b-col md="2" lg="2">

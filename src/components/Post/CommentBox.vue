@@ -1,6 +1,6 @@
 <template>
   <div class="clearfix">
-    <h2>💬 Comments</h2>
+    <h2 class="text">💬 คอมเมนต์</h2>
     <b-form-textarea
       class="mb-2"
       v-model="text"
@@ -8,7 +8,7 @@
       rows="3"
       max-rows="6"
     ></b-form-textarea>
-    <b-button class="float-right" @click="post" variant="outline-primary">Post</b-button>
+    <b-button class="float-right" @click="post" variant="outline-primary text">แชร์</b-button>
   </div>
 </template>
 
@@ -47,5 +47,10 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Kanit');
 
+.text {
+  font-family: 'Kanit', sans-serif;
+
+}
 </style>
