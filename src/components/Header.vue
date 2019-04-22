@@ -27,14 +27,13 @@
         <b-nav-item class="mx-2">
           <i
           v-if="isAuth"
-          class="fas fa-user-circle icon"
-          @click="$emit('SignIn', true)"/>
-          <b-button  v-if="!isAuth" variant="primary"  class="mx-2 text-light" >
-            {{name}}
-        </b-button>
+          class="fas fa-user-circle icon text-dark"
+          @click="showPopup"/>
+          <button  @click="showPopup" v-if="!isAuth" variant="outline-secondary"  class="border rounded p-2 mx-2 text-black btn-colour-1 text-secondary" >
+              <i class="far fa-user-circle" style="font-size:1.4em;"></i>&nbsp;{{name}}
+          </button>
         </b-nav-item>
       </b-navbar-nav>
-      <!-- <ModalLogin/> -->
     </b-navbar>
   </div>
 </template>

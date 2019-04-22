@@ -9,12 +9,16 @@
     <Footer/>
     <b-modal class="modal-titlee" hide-footer title="เข้าสู่ระบบ" v-model="showSignIn">
       <Login
+        @SignUp="showSignUp = $event"
         @close="showSignIn = $event"/>
     </b-modal>
     <b-modal class="modal-titlee" hide-footer title="สมัครสมาชิก" v-model="showSignUp">
       <SignUp/>
     </b-modal>
-    <ModalLogin v-if="showPopup" class="position-absolute boxx"/>
+    <ModalLogin
+      v-if="showPopup"
+      class="position-absolute boxx"
+      @SignIn="showSignIn = $event"/>
   </div>
 </template>
 
