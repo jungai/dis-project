@@ -11,7 +11,7 @@
         <b-button class="mt-5 text-white mb-3" variant="warning" block @click="signIn">เข้าสู่ระบบ</b-button>
         <div class="sub-button d-flex justify-content-around " >
           <b-link href="#foo" class="text-secondary">ลืมรหัสผ่าน?</b-link>
-          <b-link href="#foo" class="text-secondary">สมัครสมาชิก</b-link>
+          <b-link @click="goSignUp" class="text-secondary">สมัครสมาชิก</b-link>
         </div>
       </b-form-group>
   </div>
@@ -57,6 +57,10 @@ export default {
         password: this.password
       })
       this.$emit('close', false)
+    },
+    goSignUp () {
+      this.$emit('close', false)
+      this.$emit('SignUp', true)
     }
   }
 }
