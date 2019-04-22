@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Header
-      @SignUp="showSignUp = $event"
-      @SignIn="showSignIn = $event"/>
+    <div class="position-relative">
+      <Header
+        @SignUp="showSignUp = $event"
+        @SignIn="showSignIn = $event"/>
+    </div>
     <router-view></router-view>
     <Footer/>
     <b-modal class="modal-titlee" hide-footer title="เข้าสู่ระบบ" v-model="showSignIn">
@@ -12,6 +14,7 @@
     <b-modal class="modal-titlee" hide-footer title="สมัครสมาชิก" v-model="showSignUp">
       <SignUp/>
     </b-modal>
+    <ModalLogin v-if="showPopup" class="position-absolute boxx"/>
   </div>
 </template>
 
@@ -20,12 +23,20 @@ import Footer from '@/components/Footer'
 import SignUp from '@/components/SignUp'
 import Login from '@/components/Login'
 import Header from '@/components/Header'
+import ModalLogin from '@/components/ModalLogin'
+
 export default {
   components: {
     Header,
     SignUp,
     Login,
-    Footer
+    Footer,
+    ModalLogin
+  },
+  computed: {
+    showPopup () {
+      return this.$store.state.clickPopup
+    }
   },
   data: () => ({
     showSignUp: false,
@@ -39,5 +50,14 @@ export default {
 
 .modal-titlee {
   font-family: 'Kanit', sans-serif;
+}
+
+.boxx {
+  right: 17.5vw;
+  top: 60px;
+
+  @media only screen and (max-width: 992px) {
+    right: 0;
+  }
 }
 </style>

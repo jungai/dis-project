@@ -1,11 +1,5 @@
 <template>
   <div class="wrap">
-    <!-- <Navbar
-      :itClick="clickSignIn"
-      @asdas="clickSignIn2 = $event"
-      @did-click="clickSignIn = $event"/> -->
-    <!-- <FilterSearch class="mb-4"/>
-      @did-click="clickSignIn = $event"/> -->
     <FilterSearch class="mb-4"/>
     <b-row>
       <b-col md="8" lg="8">
@@ -17,7 +11,6 @@
           :popular="popularVote"/>
       </b-col>
     </b-row>
-    <!-- <PostHeader/> -->
   </div>
 </template>
 

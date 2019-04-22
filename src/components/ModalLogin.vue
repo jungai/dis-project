@@ -1,23 +1,29 @@
 <template>
-    <b-card
-    class="d-md-none"
-    >
-    <b-button class="button-login"  block variant="link">Log in</b-button>
-    <b-button class="button-login"  block variant="primary">Register</b-button>
-
-  </b-card>
+    <b-card no-body class="text-center p-2 ss">
+      <button @click="logout" type="button" class="btn btn-warning text-white">Logout</button>
+    </b-card>
 </template>
 
 <script>
-
 export default {
-  data: () => ({
-    username: '',
-    password: ''
-  })
+  methods: {
+    logout () {
+      this.$store.dispatch('LoginOut', false)
+      // window.location.reload()
+    }
+  }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.ss {
+  height: 236px;
+  background-color: white;
+  width: 100%;
+  max-width: 220px;
 
+  @media only screen and (max-width: 992px) {
+    max-width: 100%;
+  }
+}
 </style>

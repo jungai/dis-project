@@ -9,7 +9,8 @@ export const store = new Vuex.Store({
     email: null,
     password: null,
     token: null,
-    isAuth: false
+    isAuth: false,
+    clickPopup: false
   },
   actions: {
     async signUp ({ commit }, authData) {
@@ -36,6 +37,9 @@ export const store = new Vuex.Store({
       } catch (error) {
         console.log('handle', error)
       }
+    },
+    async LoginOut ({ commit }, data) {
+      commit('LOGOUT', false)
     }
   },
   mutations: {
@@ -49,6 +53,13 @@ export const store = new Vuex.Store({
       state.name = payload.name
       state.email = payload.email
       state.password = payload.password
+    },
+    SHOW_POPUP (state, payload) {
+      state.clickPopup = payload
+    },
+    LOGOUT (state, payload) {
+      state.clickPopup = false
+      state.isAuth = false
     }
   }
 })

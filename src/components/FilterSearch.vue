@@ -35,12 +35,13 @@
       </div>
       <b-row class="justify-content-center p-3" v-if="!isActive">
         <b-col lg="6">
-            <b-input-group class="mb-3">
+            <b-input-group class="mb-3" @click="filterBox1 = !filterBox1">
               <span class="prepend-icon"><i class="fas fa-calendar"></i> &nbsp; ปีฉาย</span>
               <b-form-input
-                placeholder="เลือกปีที่ฉาย"
-                @focus="filterBox1 = true"
-                @blur="filterBox1 = false">
+                :disabled="true"
+                v-model="selectedYear"
+                type="number"
+                placeholder="เลือกปีที่ฉาย">
               </b-form-input>
               <span
                 @click="filterBox1 = !filterBox1"
@@ -50,13 +51,16 @@
             <div
               class="show-selected "
               v-if="filterBox1">
-              <ListGroup/>
+              <List
+                :rawData="years"
+                @did-click="fromList(1, $event)"/>
             </div>
-            <b-input-group class="mb-3">
+            <b-input-group class="mb-3" @click="filterBox2 = !filterBox2">
               <span class="prepend-icon"><i class="fas fa-th-large"></i> &nbsp; หมวด</span>
               <b-form-input
-                @focus="filterBox2 = true"
-                @blur="filterBox2 = false">
+                :disabled="true"
+                v-model="selectedCategory"
+                @focus="filterBox2 = true">
               </b-form-input>
               <span
                 @click="filterBox2 = !filterBox2"
@@ -67,13 +71,16 @@
             <div
               class="show-selected"
               v-if="filterBox2">
-              <ListGroup/>
+              <List
+                :rawData="categorys"
+                @did-click="fromList(2, $event)"/>
             </div>
-            <b-input-group class="mb-3">
+            <b-input-group class="mb-3" @click="filterBox3 = !filterBox3">
               <span class="prepend-icon"><i class="fas fa-th-large"></i> &nbsp; ประเภท</span>
               <b-form-input
-                @focus="filterBox3 = true"
-                @blur="filterBox3 = false">
+                :disabled="true"
+                v-model="selectedType"
+                @focus="filterBox3 = true">
               </b-form-input>
               <span
                 @click="filterBox3 = !filterBox3"
@@ -84,7 +91,9 @@
             <div
               class="show-selected"
               v-if="filterBox3">
-              <ListGroup/>
+              <List
+                :rawData="types"
+                @did-click="fromList(3, $event)"/>
             </div>
         </b-col>
       </b-row>
@@ -94,23 +103,37 @@
 
 <script>
 import axios from 'axios'
-import ListGroup from '@/components/ListGroup'
+import ListGroup from '@/components/List/ListGroup'
+import List from '@/components/List/NormalList'
 
 export default {
   components: {
-    ListGroup
+    ListGroup,
+    List
   },
-  mounted () {
+  async mounted () {
     // fetch data here
+    const { data: years } = await axios.get('http://localhost:3000/years')
+    const { data: categorys } = await axios.get('http://localhost:3000/categorys')
+    const { data: types } = await axios.get('http://localhost:3000/types')
+    this.years = years
+    this.categorys = categorys
+    this.types = types
   },
   data: () => ({
     isActive: true,
     search: '',
     searchResult: [],
+    selectedYear: null,
+    selectedCategory: null,
+    selectedType: null,
     filterBox1: false,
     filterBox2: false,
     filterBox3: false,
-    dataForSearch: []
+    dataForSearch: [],
+    years: [],
+    categorys: [],
+    types: []
   }),
   methods: {
     async searchByMovieName () {
@@ -125,6 +148,22 @@ export default {
         })
         this.dataForSearch = result.filter(e => e !== undefined)
       }
+    },
+    fromList (val, selected) {
+      switch (val) {
+        case 1:
+          this.selectedYear = selected
+          this.filterBox1 = false
+          break
+        case 2:
+          this.selectedCategory = selected
+          this.filterBox2 = false
+          break
+        case 3:
+          this.selectedType = selected
+          this.filterBox3 = false
+          break
+      }
     }
   }
 }
@@ -137,6 +176,9 @@ export default {
 .input-group {
   background-color: white;
   border-radius: 0.25em;
+}
+.form-control:disabled {
+  background-color: white;
 }
 
 .form-control, form-control::placeholder {

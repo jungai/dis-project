@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="mt-3">
     <b-row>
       <b-col md="2" lg="2"></b-col>
-      <b-col md="8" lg="8" style="padding-left:0;padding-right:0;padding-top:2%;border-left:solid 1px #e3e8ef;border-right:solid 1px #e3e8ef;">
+      <b-col md="8" lg="8" style="padding-left:0;padding-right:0;padding-top:2%;border-left:solid 1px #e3e8ef;border-right:solid 1px #e3e8ef; border-top:solid 1px #e3e8ef;">
         <Title style="padding-left:5%;" :text="data.title"/>
         <PostHeader style="padding-left:5%;padding-right:5%;border-bottom:solid 1px #e3e8ef;"
           :image="data.image"
@@ -15,7 +15,7 @@
           @post="postData"/>
         <CommentList :list="data" style="padding:5%;padding-top:0;padding-bottom:2%;border-bottom:solid 1px #e3e8ef;"/>
         <Popular style="padding:5%;padding-top:2%;padding-bottom:2%;border-bottom:solid 1px #e3e8ef;"
-          header="Popular"
+          header="🍿 ยอดนิยม"
           :popular="popularVote"/>
       </b-col>
       <b-col md="2" lg="2">
