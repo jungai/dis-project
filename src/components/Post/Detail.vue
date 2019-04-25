@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="mb-4"> {{ review }} </p>
-    <social-sharing url="https://vuejs.org/" inline-template>
+    <social-sharing :url="url" inline-template>
       <div class="d-flex justify-content-center">
         <network network="facebook" class="m-2">
          <i class="fab fa-facebook img" id="facebook"/>
@@ -21,7 +21,13 @@ export default {
       type: String,
       default: ''
     }
-  }
+  },
+  mounted () {
+    this.url = window.location.href
+  },
+  data: () => ({
+    url: null
+  })
 }
 </script>
 
