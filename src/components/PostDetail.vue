@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3">
+  <div class="mt-3 wrap">
     <b-row>
       <b-col md="2" lg="2"></b-col>
       <b-col md="8" lg="8" style="padding-left:0;padding-right:0;padding-top:2%;border-left:solid 1px #e3e8ef;border-right:solid 1px #e3e8ef; border-top:solid 1px #e3e8ef;">
@@ -89,5 +89,7 @@ export default {
 </script>
 
 <style>
-
+  .wrap {
+    overflow-x: hidden;
+  }
 </style>
