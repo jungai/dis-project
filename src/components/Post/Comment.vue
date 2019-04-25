@@ -1,10 +1,17 @@
 <template>
   <b-card
-    :title="cardTitle"
+    :header="num"
+    :footer="footer"
     tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
+    class="mb-4"
+    header-text-variant="white"
+    header-bg-variant="info"
+    footer-bg-variant="transparent"
   >
+    <!-- <b-card-text>
+      ความคิดเห็นที่ {{ numberList }}
+    </b-card-text> -->
+    <!-- <hr/> -->
     <b-card-text>
       {{ msg }}
     </b-card-text>
@@ -21,6 +28,21 @@ export default {
     cardTitle: {
       type: String,
       default: ''
+    },
+    name: {
+      type: String,
+      default: ''
+    },
+    numberList: {
+      type: Number
+    }
+  },
+  computed: {
+    num () {
+      return `ความคิดเห็นที่ ${this.numberList}`
+    },
+    footer () {
+      return `✏️ชื่อผู้ใช้งาน: ${this.name}`
     }
   }
 }
