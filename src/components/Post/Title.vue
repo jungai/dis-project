@@ -18,7 +18,7 @@
       </b-card>
       </b-col>
     </b-row>
-  
+
 </template>
 
 <script>
@@ -28,8 +28,8 @@ export default {
       type: String,
       default: ''
     },
-    score:{
-      type:Number,
+    score: {
+      type: Number,
       default: ''
     }
   }
