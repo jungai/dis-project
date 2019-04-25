@@ -1,5 +1,5 @@
 <template>
-  <p> {{ review }} </p>
+  <div v-html="review"></div>
 </template>
 
 <script>
