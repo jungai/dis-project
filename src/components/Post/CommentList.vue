@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Comment v-for="(li, index) in list.comments" :key="index" :msg="li.msg"/>
+    <Comment v-for="(li, index) in list.comments" :numberList="index + 1" :key="index" :msg="li.msg" :name="li.name"/>
   </div>
 </template>
 

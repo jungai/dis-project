@@ -58,7 +58,7 @@ export default {
       if (this.isAuth) {
         const cloneObj = {
           ...this.list,
-          comments: [ ...this.list.comments, { msg: this.text } ] }
+          comments: [ ...this.list.comments, { name: this.$store.state.name, msg: this.text } ] }
         await axios.patch(`https://ez-json-server.herokuapp.com/reviews/${this.id}`, cloneObj)
         this.$emit('post', !this.isFetch)
         this.text = ''
