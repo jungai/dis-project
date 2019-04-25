@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <p class="mb-4"> {{ review }} </p>
     <social-sharing :url="url" inline-template>
@@ -12,6 +13,9 @@
       </div>
     </social-sharing>
   </div>
+=======
+  <div v-html="review"></div>
+>>>>>>> mike
 </template>
 
 <script>
