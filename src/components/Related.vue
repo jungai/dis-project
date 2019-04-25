@@ -15,7 +15,7 @@
               vertical-align
               class="mt-2">
                 <b-img slot="aside" :src="movie.image" width="130" height="80"/>
-                <span  class="claimedRight">{{ movie.review }}</span>
+                <span  class="claimedRight">{{ movie.title }}</span>
              </b-media>
              <!-- <span  class="claimedRight d-none d-md-block d-lg-none">{{ movie.review }}</span> -->
             </b-list-group-item>
