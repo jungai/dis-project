@@ -14,7 +14,7 @@
         align="center"
         style="font-size:100%;"
       >
-        <b-card-text style="font-size:200%;">{{ score }}</b-card-text>
+        <b-card-text style="font-size:200%;"><b>{{ score }}</b> <span style="font-size:50%;">/ 5.0</span></b-card-text>
       </b-card>
       </b-col>
     </b-row>
