@@ -8,15 +8,15 @@
               button
               v-for="(movie,index) in popular"
               :key="index"
-              @click="justClick(index)">
-               <h4> {{ movie.movieName }}</h4>
+              @click="justClick(movie.id)">
+               <h4> {{ movie.name }}</h4>
               <b-media
               vertical-align
               class="mt-2">
                 <b-img slot="aside" :src="movie.image" width="130" height="80"/>
-                <span  class="claimedRight d-md-none d-lg-block">{{ movie.description }}</span>
+                <span  class="claimedRight d-md-none d-lg-block">{{ movie.title }}</span>
              </b-media>
-             <span  class="claimedRight d-none d-md-block d-lg-none">{{ movie.description }}</span>
+             <span  class="claimedRight d-none d-md-block d-lg-none">{{ movie.title }}</span>
             </b-list-group-item>
           </b-list-group>
       </b-col>
@@ -25,24 +25,63 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   props: {
     header: {
       type: String,
       required: true
-    },
-    popular: {
-      type: Array,
-      default: () => ([])
     }
+    // popular: {
+    //   type: Array,
+    //   default: () => ([])
+    // }
+  },
+  created () {
+    axios.get(`http://localhost:3000/reviews`)
+      .then(response => {
+      // JSON responses are automatically parsed.
+        this.movies = response.data
+        this.randomPopular()
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
   },
   data: () => ({
-    didClick: false
+    didClick: false,
+    movies: [],
+    popular: [],
+
   }),
   methods: {
     justClick (index) {
-      this.didClick = !this.didClick
-      console.log(index)
+      this.$router.push('/movie-review/'+ index)
+    },
+    randomPopular() {
+      let index = []
+      index[0] = (Math.floor(Math.random() * 30))
+      index[1] = (Math.floor(Math.random() * 30))
+      index[2] = (Math.floor(Math.random() * 30))
+      for (var i = index.length; i > 0; i--) {
+        if (index[0]===index[1]) {
+          index[1] = Math.floor(Math.random() * 30)
+        }
+        else if (index[0]===index[2]) {
+            index[2] = Math.floor(Math.random() * 30)
+        }
+        else if (index[1]===index[2]) {
+            index[2] = Math.floor(Math.random() * 30)
+        }
+      }
+      this.popular = this.movies.filter(movie => {
+        for (var i in index) {
+          if (movie.id === index[i]) {
+            return movie
+          }
+
+        }
+      })
     }
   }
 }

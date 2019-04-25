@@ -5,11 +5,11 @@
       <div class="reviewcard">
         <b-card-group deck>
             <b-card v-for="(movie,index) in currentPageMovies" :key="index" v-bind:img-src="movie.image" img-alt="Image" img-top>
-              <h4 class="card-title">
+              <h4 class="card-title mb-2">
                 {{movie.name}}
               </h4>
               <b-card-text class="summary-content">
-                {{movie.review}}
+                {{movie.title}}
               </b-card-text>
               <div slot="footer">
                 <router-link :to="{ path: '/movie-review/'+ movie.id}"><b-btn variant="primary" block style="padding:5px;" >อ่านรีวิว</b-btn></router-link>
