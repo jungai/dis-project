@@ -6,7 +6,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router'
 import { store } from './store/store'
+import SocialSharing from 'vue-social-sharing'
 
+Vue.use(SocialSharing)
 Vue.use(VueRouter)
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
