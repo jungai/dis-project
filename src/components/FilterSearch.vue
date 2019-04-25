@@ -55,26 +55,6 @@
                 :rawData="years"
                 @did-click="fromList(1, $event)"/>
             </div>
-            <b-input-group class="mb-3" @click="filterBox2 = !filterBox2">
-              <span class="prepend-icon"><i class="fas fa-th-large"></i> &nbsp; หมวด</span>
-              <b-form-input
-                :disabled="true"
-                v-model="selectedCategory"
-                @focus="filterBox2 = true">
-              </b-form-input>
-              <span
-                @click="filterBox2 = !filterBox2"
-                class="prepend-icon">
-                  <i class="fas fa-caret-down" :class=" filterBox2 ? 'dropdown-img' : ''"></i>
-              </span>
-            </b-input-group>
-            <div
-              class="show-selected"
-              v-if="filterBox2">
-              <List
-                :rawData="categorys"
-                @did-click="fromList(2, $event)"/>
-            </div>
             <b-input-group class="mb-3" @click="filterBox3 = !filterBox3">
               <span class="prepend-icon"><i class="fas fa-th-large"></i> &nbsp; ประเภท</span>
               <b-form-input
@@ -111,13 +91,19 @@ export default {
     ListGroup,
     List
   },
+  watch: {
+    filterBox1 (val) {
+      if (val) this.$emit('year', val)
+    },
+    filterBox3 (val) {
+      if (val) this.$emit('type', val)
+    }
+  },
   async mounted () {
     // fetch data here
     const { data: years } = await axios.get('https://ez-json-server.herokuapp.com/years')
-    const { data: categorys } = await axios.get('https://ez-json-server.herokuapp.com/categorys')
     const { data: types } = await axios.get('https://ez-json-server.herokuapp.com/types')
     this.years = years
-    this.categorys = categorys
     this.types = types
   },
   data: () => ({
@@ -125,14 +111,11 @@ export default {
     search: '',
     searchResult: [],
     selectedYear: null,
-    selectedCategory: null,
     selectedType: null,
     filterBox1: false,
-    filterBox2: false,
     filterBox3: false,
     dataForSearch: [],
     years: [],
-    categorys: [],
     types: []
   }),
   methods: {
@@ -154,10 +137,6 @@ export default {
         case 1:
           this.selectedYear = selected
           this.filterBox1 = false
-          break
-        case 2:
-          this.selectedCategory = selected
-          this.filterBox2 = false
           break
         case 3:
           this.selectedType = selected
@@ -199,11 +178,9 @@ export default {
 
   .hero-section {
     background-image: url('../assets/friend.jpg');
-    // background-color: bisque;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    // position: absolute;
     height: 320px;
     width: 100%;
     filter: brightness(72%);
