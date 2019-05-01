@@ -35,46 +35,16 @@
       </div>
       <b-row class="justify-content-center p-3" v-if="!isActive">
         <b-col lg="6">
-            <b-input-group class="mb-3" @click="filterBox1 = !filterBox1">
-              <span class="prepend-icon"><i class="fas fa-calendar"></i> &nbsp; ปีฉาย</span>
-              <b-form-input
-                :disabled="true"
-                v-model="selectedYear"
-                type="number"
-                placeholder="เลือกปีที่ฉาย">
-              </b-form-input>
-              <span
-                @click="filterBox1 = !filterBox1"
-                class="prepend-icon"><i class="fas fa-caret-down" :class=" filterBox1? 'dropdown-img' : ''"></i>
-              </span>
-            </b-input-group>
-            <div
-              class="show-selected "
-              v-if="filterBox1">
-              <List
-                :rawData="years"
-                @did-click="fromList(1, $event)"/>
-            </div>
-            <b-input-group class="mb-3" @click="filterBox3 = !filterBox3">
-              <span class="prepend-icon"><i class="fas fa-th-large"></i> &nbsp; ประเภท</span>
-              <b-form-input
-                :disabled="true"
-                v-model="selectedType"
-                @focus="filterBox3 = true">
-              </b-form-input>
-              <span
-                @click="filterBox3 = !filterBox3"
-                class="prepend-icon">
-                  <i class="fas fa-caret-down" :class=" filterBox3 ? 'dropdown-img' : ''"></i>
-              </span>
-            </b-input-group>
-            <div
-              class="show-selected"
-              v-if="filterBox3">
-              <List
-                :rawData="types"
-                @did-click="fromList(2, $event)"/>
-            </div>
+          <b-form-select class="mb-4" v-model="selectedYear" :options="years">
+            <template slot="first">
+              <option :value="null" disabled>-- เลือกปี --</option>
+            </template>
+          </b-form-select>
+            <b-form-select v-model="selectedType" :options="types">
+              <template slot="first">
+                <option :value="null" disabled>-- เลือกชนิดของหนัง --</option>
+              </template>
+            </b-form-select>
         </b-col>
       </b-row>
     </div>
@@ -84,12 +54,18 @@
 <script>
 import axios from 'axios'
 import ListGroup from '@/components/List/ListGroup'
-import List from '@/components/List/NormalList'
 
 export default {
   components: {
-    ListGroup,
-    List
+    ListGroup
+  },
+  watch: {
+    selectedYear (val) {
+      this.fromList(1, val)
+    },
+    selectedType (val) {
+      this.fromList(2, val)
+    }
   },
   async mounted () {
     // fetch data here
