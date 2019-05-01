@@ -8,7 +8,7 @@
       rows="3"
       max-rows="6"
     ></b-form-textarea>
-    <b-button class="float-right" @click="post" variant="outline-primary text">โพสต์</b-button>
+    <b-button :disabled="disabled" class="float-right" @click="post" variant="outline-primary text">โพสต์</b-button>
     <b-modal
       v-model="showAlert"
       title="ผิดพลาด"
@@ -49,8 +49,18 @@ export default {
       return this.$store.state.isAuth
     }
   },
+  watch: {
+    text (val) {
+      if (this.valid(val)) {
+        this.disabled = false
+      } else {
+        this.disabled = true
+      }
+    }
+  },
   data: () => ({
     text: '',
+    disabled: false,
     showAlert: false
   }),
   methods: {
@@ -65,6 +75,12 @@ export default {
       } else {
         this.showAlert = true
       }
+    },
+    valid (val) {
+      const pattern = '[a-zA-Z0-9_]+.*$'
+      const isValid = new RegExp(pattern)
+
+      return isValid.test(val)
     }
   }
 }
