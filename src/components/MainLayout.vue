@@ -39,7 +39,7 @@ export default {
     MovieCardsForFilter
   },
   created () {
-    axios.get(`http://localhost:3000/reviews`)
+    axios.get(`https://ez-json-server.herokuapp.com/reviews`)
       .then(response => {
       // JSON responses are automatically parsed.
         this.movies = response.data
@@ -64,12 +64,19 @@ export default {
     fromFilter (value) {
       let test = this.movies
       if (value.year) {
-        test = test.filter(e => e.year === value.year)
+        if (value.year === 'all') {
+          test = test.filter(e => e)
+        } else {
+          test = test.filter(e => e.year === value.year)
+        }
       }
       if (value.type) {
-        test = test.filter(e => e.type === value.type)
+        if (value.type === 'all') {
+          test = test.filter(e => e)
+        } else {
+          test = test.filter(e => e.type === value.type)
+        }
       }
-      console.log(test)
       this.showFilterMovie = true
       this.movieForFilter = test
     }
