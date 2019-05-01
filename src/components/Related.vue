@@ -36,8 +36,7 @@ export default {
     movieReview: {
       type: Array,
       default: () => []
-    },
-
+    }
   },
   created () {
     axios.get(`https://ez-json-server.herokuapp.com/reviews`)
@@ -53,42 +52,41 @@ export default {
   data: () => ({
     didClick: false,
     movies: [],
-    related: [],
-
+    related: []
   }),
   methods: {
     justClick (index) {
-      this.$router.push('/movie-review/'+ index)
+      this.$router.push('/movie-review/' + index)
+      // window.location.reload()
+      // window.scrollTo(0, 0)
     },
-    movieRelated() {
+    movieRelated () {
       try {
-        this.related = this.movies.filter(movie => movie.type === this.movieReview[0].type
-          && movie.id !== this.movieReview.id)
-          if (this.related.length > 2) {
-            let rand = []
-            rand[0] = Math.floor(Math.random() * this.related.length)
-            rand[1] = Math.floor(Math.random() * this.related.length)
-            rand[2] = Math.floor(Math.random() * this.related.length)
-            for (var i = rand.length; i > 0; i--) {
-              if (rand[0]===rand[1]) {
-                rand[1] = Math.floor(Math.random() * this.related.length)
-              }
-              else if (rand[0]===rand[2]) {
-                  rand[2] = Math.floor(Math.random() * this.related.length)
-              }
-              else if (rand[1]===rand[2]) {
-                  rand[2] = Math.floor(Math.random() * this.related.length)
+        this.related = this.movies.filter(movie => movie.type === this.movieReview[0].type &&
+          movie.id !== this.movieReview.id)
+        if (this.related.length > 2) {
+          let rand = []
+          rand[0] = Math.floor(Math.random() * this.related.length)
+          rand[1] = Math.floor(Math.random() * this.related.length)
+          rand[2] = Math.floor(Math.random() * this.related.length)
+          for (var i = rand.length; i > 0; i--) {
+            if (rand[0] === rand[1]) {
+              rand[1] = Math.floor(Math.random() * this.related.length)
+            } else if (rand[0] === rand[2]) {
+              rand[2] = Math.floor(Math.random() * this.related.length)
+            } else if (rand[1] === rand[2]) {
+              rand[2] = Math.floor(Math.random() * this.related.length)
+            }
+          }
+          let relatedRand = this.related.filter((movie,no) => {
+            for (var i in rand) {
+              if (no === rand[i]) {
+                return movie
               }
             }
-            let relatedRand = this.related.filter((movie,no) => {
-              for (var i in rand) {
-                if (no=== rand[i]) {
-                  return movie
-                }
-              }
-            })
-            this.related = [...relatedRand]
-          }
+          })
+          this.related = [...relatedRand]
+        }
       } catch (e) {
 
       }
