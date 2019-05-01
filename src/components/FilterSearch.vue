@@ -125,7 +125,8 @@ export default {
         this.searchResult = data
         const result = this.searchResult.map(each => {
           let lowerText = each.name.toLowerCase()
-          if (lowerText.indexOf(this.search) !== -1) {
+          let searchLow = this.search.toLowerCase()
+          if (lowerText.indexOf(searchLow) !== -1) {
             return each
           }
         })
