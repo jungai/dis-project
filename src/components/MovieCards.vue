@@ -90,17 +90,6 @@ export default {
       if ((this.currentPageIndex + 1) <= (Math.ceil(Object.keys(this.movies).length / this.nbRowPerPage) - 1)) {
         this.currentPageIndex = this.currentPageIndex + 1
       }
-<<<<<<< HEAD
-    },
-    fetchProducts () {
-      {
-        this.$http.get('https://ez-json-server.herokuapp.com/reviews').then((response) => {
-          console.log(response.body)
-          this.products = response.body
-        })
-      }
-=======
->>>>>>> reviews
     }
   }
 }
