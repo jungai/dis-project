@@ -56,6 +56,9 @@ export default {
       } else {
         this.disabled = true
       }
+    },
+    isAuth (v) {
+      if (v) this.disabled = true
     }
   },
   data: () => ({
