@@ -7,7 +7,7 @@
           <ul class="list-text d-flex justify-content-around justify-content-lg-around p-0">
             <li
               :class=" isActive ? 'active-tab' : null"
-              @click=" isActive = true">ค้นหา</li>
+              @click="reset">ค้นหา</li>
             <li
               :class=" !isActive ? 'active-tab' : null"
               @click=" isActive = false">กรองข้อมูล</li>
@@ -73,7 +73,7 @@
               v-if="filterBox3">
               <List
                 :rawData="types"
-                @did-click="fromList(3, $event)"/>
+                @did-click="fromList(2, $event)"/>
             </div>
         </b-col>
       </b-row>
@@ -90,14 +90,6 @@ export default {
   components: {
     ListGroup,
     List
-  },
-  watch: {
-    filterBox1 (val) {
-      if (val) this.$emit('year', val)
-    },
-    filterBox3 (val) {
-      if (val) this.$emit('type', val)
-    }
   },
   async mounted () {
     // fetch data here
@@ -119,6 +111,14 @@ export default {
     types: []
   }),
   methods: {
+    reset () {
+      this.isActive = true
+      this.filterBox1 = false
+      this.filterBox3 = false
+      this.selectedYear = null
+      this.selectedType = null
+      this.$emit('reset', true)
+    },
     async searchByMovieName () {
       if (this.search !== '') {
         const { data } = await axios('http://localhost:3000/reviews')
@@ -137,10 +137,12 @@ export default {
         case 1:
           this.selectedYear = selected
           this.filterBox1 = false
+          this.$emit('year', { year: this.selectedYear, type: this.selectedType })
           break
-        case 3:
+        case 2:
           this.selectedType = selected
           this.filterBox3 = false
+          this.$emit('type', { year: this.selectedYear, type: this.selectedType })
           break
       }
     }

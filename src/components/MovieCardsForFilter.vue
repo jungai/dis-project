@@ -1,8 +1,9 @@
 <template>
   <div>
     <div>
-      <div id="title"><p>🎬 รีวิวหนังล่าสุด</p></div>
-      <div class="reviewcard">
+      <div id="title" v-if="movies.length !== 0"><p>🔍 ผลการค้นหา {{ movies.length }} เรื่อง</p></div>
+      <div id="title" v-else><p>🔍 ไม่พบข้อมูล</p></div>
+      <div class="reviewcard" v-if="movies.length !== 0">
         <b-card-group deck>
             <b-card v-for="(movie,index) in currentPageMovies" :key="index" v-bind:img-src="movie.image" img-alt="Image" img-top>
               <h4 class="card-title mb-2">
@@ -19,7 +20,7 @@
         </b-card-group>
       </div>
     </div>
-    <ul class="pagination">
+    <ul class="pagination" v-if="movies.length !== 0">
       <li class="page-item"><a class="page-link" @click="goprevious()">ก่อนหน้า</a></li>
       <li class="page-item" v-for="i in nbPages" :key="i"  @click="goto(i)" :class={active:currentPage(i)}><a class="page-link">{{i}}</a></li>
       <li class="page-item"><a class="page-link" @click="gonext()">ถัดไป</a></li>
