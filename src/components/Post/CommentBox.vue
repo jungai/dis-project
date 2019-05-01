@@ -44,6 +44,11 @@ export default {
       required: true
     }
   },
+  mounted () {
+    if (this.isAuth) {
+      this.disabled = true
+    }
+  },
   computed: {
     isAuth () {
       return this.$store.state.isAuth

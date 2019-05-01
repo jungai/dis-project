@@ -64,12 +64,19 @@ export default {
     fromFilter (value) {
       let test = this.movies
       if (value.year) {
-        test = test.filter(e => e.year === value.year)
+        if (value.year === 'all') {
+          test = test.filter(e => e)
+        } else {
+          test = test.filter(e => e.year === value.year)
+        }
       }
       if (value.type) {
-        test = test.filter(e => e.type === value.type)
+        if (value.type === 'all') {
+          test = test.filter(e => e)
+        } else {
+          test = test.filter(e => e.type === value.type)
+        }
       }
-      console.log(test)
       this.showFilterMovie = true
       this.movieForFilter = test
     }
